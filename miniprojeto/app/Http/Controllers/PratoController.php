@@ -56,9 +56,10 @@ class PratoController extends Controller
      * @param  \App\Models\Prato  $Prato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prato $Prato)
+    public function edit($id)
     {
-        return view('pratos.editar');
+        $pratos = Prato::find($id);
+        return view('pratos.editar', ['pratos' => $pratos]);
     }
 
     /**
