@@ -9,7 +9,6 @@
                     <h3>{{ $prato->nome }}</h3>
                     <p>{{ $prato->nota}}</p>
                     <h4>{{ $prato->cal}} cals</h4>
-
                 </div>
             </div>
         @endforeach
