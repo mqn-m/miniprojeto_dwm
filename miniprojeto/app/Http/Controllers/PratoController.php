@@ -25,7 +25,7 @@ class PratoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pratos.novo');
     }
 
     /**

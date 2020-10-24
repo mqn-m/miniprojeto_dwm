@@ -4,7 +4,7 @@
 <section id="Pratos" class="wrapper">
     <div class="inner" style="text-align: right;">
         <h1 class="titulo">Pratos </h1>
-        <a href="pratos.novo" class="button special small">Adicionar</a>
+        <a href="pratos/novo" class="button special small">Adicionar</a>
     </div>
     <div class="inner">
         @foreach($pratos as $prato)
