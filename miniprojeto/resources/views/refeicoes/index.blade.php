@@ -14,7 +14,6 @@
                 <h3>{{ $refeicao->data_refeicao }}</h3>
                 <p>{{ $refeicao->notas}}</p>
                 <h4>{{ $refeicao->total_cal}} cals</h4>
-
             </div>
         </div>
         @endforeach
