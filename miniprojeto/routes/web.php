@@ -18,15 +18,17 @@ Route::get('/', function () {
 });
 
 
-Route::get('/pratos', 'App\Http\Controllers\PratoController@index');
+
 // Route::get('lista', 'App\Http\Controllers\UserController@lista');
 Route::get('/users', 'App\Http\Controllers\UserController@store');
 Route::get('/users/novo', 'App\Http\Controllers\UserController@create');
 // Route::get('/users/{user}/edit', 'App\Http\Controllers\UserController@edit');
 
+//pratos
 
-
+Route::get('/pratos', 'App\Http\Controllers\PratoController@index');
 Route::get('/pratos/novo', 'App\Http\Controllers\PratoController@create');
+Route::get('/pratos/editar', 'App\Http\Controllers\PratoController@edit');
 
 
 //refeicoes

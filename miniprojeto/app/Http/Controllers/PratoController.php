@@ -58,7 +58,7 @@ class PratoController extends Controller
      */
     public function edit(Prato $Prato)
     {
-        //
+        return view('pratos.editar');
     }
 
     /**
