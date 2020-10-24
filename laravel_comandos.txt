@@ -1,0 +1,370 @@
+cd C:\wamp64\www\projects
+
+creating new project:
+laravel new nome_projeto
+
+running project:
+php artisan serve
+
+routes:
+Route::get('/', function () {
+    // return "Hello";
+    // return ['foo'=>'bar'];
+    // return view('welcome');
+});
+
+Route::get('/test', function () {
+    $name = request('name');
+    return view('test', ['name'=>$name]);
+});
+Route::get('/test', function () {
+    return view('test', [
+        'name' => request('name')
+    ]);
+});
+na view - must be view.blade.php: {{ $name }}
+
+
+Route::get('/posts/{post}', function ($post) {
+    return $post;
+    // return view('post');
+});
+
+controller:
+php artisan make:controller ControllerName
+
+Route::get('/posts/{post}', 'PostsController@show'); -> controller show method recieves $post
+class PostsController extends Controller
+{
+    public function show($slug)
+    {
+        $post = \DB::table('posts')->where('slug', $slug)->first();
+		or
+		$post = Post::where('slug', $slug)->first(); -> using model
+
+        return view('post', [
+            'post'=> $post
+        ]);
+    }
+}
+
+Model: 
+php artisan make:model ModelName
+
+Database Conection:
+.env file
+
+Migration to build databases:
+php artisan make:migration create_tablename_table
+
+in the created migration file we put the tables
+and
+php artisan migrate
+
+runs all migrations e cria as várias tabelas na bd
+erro do this:
+		Isso acontece pois o Laravel alterou o valor default dos campos. 
+		Para corrigir isso, basta ir no arquivo app/Providers/AppServiceProvider.php e adicionar o seguinte código:
+
+		use Illuminate\Support\Facades\Schema;
+
+		public function boot()
+		{
+			Schema::defaultStringLength(191);
+		}
+
+adding a collumn
+metodo em desenvolvimento:
+simplesmente editar o ficheiro da migration 
+depois ou dar rollback e migrate again -> this lose table databases
+ou entao php artisan migrate:fresh -> this drops e reruns everything (good if empty)
+
+metodo pos produção, se tables já tiverem dados:
+php artisan make:migration add_title_to_posts_table
+e boom migrate
+
+php artisan migrate:rollback -> voltar atrás na ultima migration?
+
+
+php artisan make:model Project -mc (migration, model, controller for projects) -> tudo num só comando
+
+php artisan tinker
+
+>>> $assignment= new App\Models\Assignment
+=> App\Models\Assignment {#3270}
+>>> $assignment->body = 'Finish school work'
+=> "Finish school work"
+>>> $assignment->save()
+=> true
+>>> App\Models\Assignment::all();
+>>> App\Models\Assignment::where('completed', false)->get();
+>>> $assignment = App\Models\Assignment::first();
+>>> $assignment->complete()
+
+o método complete é criado no model e tem de se lhe dar save
+	 public function complete()
+		{
+			$this->completed=1;
+			$this->save();
+		}
+
+Layout Pages:
+layout.blade.php -> conteudo comum e @yield('content');
+
+view.blade.php -> @extends('layout'); @section ('content') // code @endsection
+
+using a template
+-all assets go to the public folder
+
+
+active links
+{{ Request::path() === '/' ? 'current_page_item' : '' }}
+{{ Request::is('about') ? 'current_page_item' : '' }}
+
+vanilla js and css, vai para a pasta public
+se for sass ou algo assim, coisas que vão ser compiladas
+
+laravel mix
+webpack.mix.js, compila o js e sass que está nos resources e vao para o public
+sass compilation
+npm -v
+npm install -> instala as depencias ->vão pro node_module
+npm run dev ->compilation
+npm run watch ->fica a ver se há alterações e compila de novo
+
+import the compiled files no html
+
+Dynamic Data
+
+fetching records
+$articles = App\Article::all();
+
+$articles = App\Article::take(3)->latest()-> get(); 
+
+$articles = App\Article::latest('published_at')-> get();
+
+$articles = App\Article::take(2)->get();
+
+$articles = App\Article::paginate(2);
+
+depois passing to view
+return view('about', [
+	'articles'=> $articles
+)
+
+como display na view
+using blade
+@foreach ($articles as $article)
+	<li class="first">
+		<p> {{ $articles -> title }} </p>
+		<p> {{ $articles -> body }} </p>
+
+	</li>
+@endforeach
+
+show each article
+Route::get( '/articles/{article}' 'ArticlesController@show');
+php artisan make:controller ArticlesController 
+
+    public function show($id)
+    {
+		$article = Article::findOrFail($id);
+		
+		return view('articles.show' , ['article' => $article] );
+
+    }
+	show.blade.php 
+	
+<a href="/articles/{{ $article->id }}"> {{ $article -> title }}
+	
+Route::get( '/articles' 'ArticlesController@index');
+
+    public function index()
+    {
+		$articles = Article::latest()->get();
+		return view('articles.index' , ['article' => $articles] );
+
+    }
+
+index.blade.php 
+	@foreach ($articles as $article)
+	<li class="first">
+		<p> {{ $articles -> title }} </p>
+		<p> {{ $articles -> body }} </p>
+
+	</li>
+	@endforeach
+	
+	
+	
+7 restfull controller action - convection
+
+php artisan make:controller ProjectController -r -m "project"
+
+index() - pra mostrar uma lista de recursos
+show($id) - pra mostrar um especifico recurso
+
+ public function create() - mostrar view pra criar novo recurso
+    {
+		return view ('articles.create');
+    }
+
+ public function store() - persist o novo recurso
+    {
+		//dump( request()->all() );
+		
+		request()->validate([
+			'title'=>['requires', 'min:3'] //fazer both validation browser side and server side
+		]);
+		
+		
+		$article = new Article();
+		$article ->title = request('title');
+		$article->save();
+		return redirect ('/articles');
+		
+		ou
+		-> assim temos de por no Model propriendade protected $fillable = [com os campos]
+		-> ou entao protected $guarded = [] ???????????????
+		
+		$validatedatributes = request()->validate([
+			'title'=>['requires', 'min:3'] //fazer both validation browser side and server side
+		]);
+		
+		Article::create(
+			$validatedatributes 
+		); 							
+		return redirect ('/articles');	
+
+
+    }
+
+ public function edit($id) - mostrar view pra editar recurso existente
+    {
+		//descobrir article associado ao id e passar pra view
+		$article = Article::find($id);		
+		
+		return view ('articles.edit', compact('article'));		
+    }
+
+ public function update($id) - persist o recurso editado
+    {
+		request()->validate([
+			'title'=>['requires', 'min:3'] //fazer both validation browser side and server side
+		]);
+	
+		//descobrir article associado ao id e passar pra view
+		$article = Article::find($id);	
+		
+		$article = new Article();
+		$article ->title = request('title');
+		
+		$article->save();
+		return redirect ('/articles/'.$article->id);
+		
+		ou
+		
+		Article::update($validatedatributes ); 
+    }
+
+ public function destroy() - apagar um recurso
+    {
+		
+
+    }
+	
+get - para ler
+put - para update
+delete - para delete
+post - para criar novo
+
+rotas:
+GET /videos - ver lista
+GET /videos/2 - ver video id 2
+PUT /videos/2 - editar video id 2
+DELETE /videos/2 - apagar video id 2
+GET /videos/2/edit - para ver o form de editar
+GET /videos/create - para ver o form de criar  POST /videos
+
+POST /videos/subscription - nova subscription -> videosubscriptionController
+
+
+Form handling:
+
+Route::post( '/articles' 'ArticlesController@store');
+Route::get( '/articles/create' 'ArticlesController@create');
+
+ordem das rotas importa, wildcards pro fim
+
+create.blade.php
+form method is post and the action is "/articles"
+ add this to the form @csrf
+
+@yield('head') -> para colocar algum link numa só view especifica
+
+
+Route::get( '/articles/{article}/edit' 'ArticlesController@edit');
+
+edit.blade.php
+setting default values {{ $article->title}}
+form method is post and the action is "/articles/{{ $article->id }}"
+e add 
+@csrf
+@method('PUT') -> pq o browser so entende post e get, entao diz-se ao laravel que na verdade queremos put
+
+@if ($errors->has('title')) 
+<p class="help is-danger" > {{ $errors->first('title') }}
+@endif
+ou
+
+@error('title')
+<p class="help is-danger" > {{ $errors->first('title') }}
+@enderror
+
+para não se perder o valor na validação
+value="{{ old('title') }}" - provides the last input value
+
+Route::put( '/articles/{article}' 'ArticlesController@update');
+
+
+// find or fail em vez de find
+
+
+public function show (Article $article){ ->consegue receber o article da wildcard
+
+
+se não quisermos que se procure pelo id
+
+no Model criar o seguinte método
+	public function getRouteKeyName(){
+		return 'slug'; 
+	}
+	
+	
+	
+Named routes, depois de criar uma route, pode-se dar um nome para depois referenciar-se dessa forma
+no file das rooutes rota... ->name('articles.show)
+	route('articles.show', $article´)
+	
+Model e colocar um path com referencia ao path desse recurso, e depois pode-se referenciar esse path
+
+
+factory
+
+php artisan make:factory PratoFactory --model=Prato
+
+faker types https://github.com/fzaninotto/Faker
+
+factory public function definition() //example
+    {
+        return [
+            'nome' => $this->faker->name,
+            'cal' => $this->faker->numberBetween($min = 100, $max = 5000),
+            'nota' => $this->faker->sentence,
+            'user' =>$this->faker->randomDigit
+             ];
+    }
+
+php artisan tinker
+
+App\Models\Prato::factory()->count(3)->create();

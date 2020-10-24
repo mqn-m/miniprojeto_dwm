@@ -8,10 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Prato extends Model
 {
     use HasFactory;
-
-    public function testDatabase() //?????
-    {
-        $prato = Prato::factory()->count(3)->make();;
-
-    }
+    
 }

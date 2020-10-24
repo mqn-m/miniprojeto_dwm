@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Prato;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Faker\Factory as Faker;
 
 class PratoFactory extends Factory
 {
@@ -23,7 +23,7 @@ class PratoFactory extends Factory
     public function definition()
     {
         return [
-            'nome' => $this->faker->name,
+            'nome' => $this->faker->word,
             'cal' => $this->faker->numberBetween($min = 100, $max = 5000),
             'nota' => $this->faker->sentence,
             'user' =>$this->faker->randomDigit
