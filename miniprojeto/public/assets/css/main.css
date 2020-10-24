@@ -2718,3 +2718,25 @@ input[type=number] {
 	text-decoration: none;
 	width: 100%;
 }
+
+.cartao {
+	position: relative;
+	display: inline-block;
+	border-radius: 4px;
+	border: solid 1px #dee1e3;
+	margin-top: 0.2em;
+	overflow: hidden;
+	padding: 1em;
+	width: 33%;
+	height: 300px;
+}
+.cartao h4{
+	position: absolute;
+    bottom: 0;
+    left: 1em;
+}
+.editar{
+	position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
