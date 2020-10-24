@@ -30,3 +30,7 @@ Route::get('/pratos.novo', function () {
 
 Route::get('/refeicoes', 'App\Http\Controllers\RefeicaoController@index');
 Route::get('/refeicoes/novo', 'App\Http\Controllers\RefeicaoController@create');
+
+//users
+Route::get('/users', 'App\Http\Controllers\UserController@store');
+Route::get('/users/novo', 'App\Http\Controllers\UserController@create');
