@@ -24,3 +24,9 @@ Route::get('/pratos', 'App\Http\Controllers\PratoController@index');
 Route::get('/pratos.novo', function () {
     return view('pratos.novo');
 });
+
+
+//refeicoes
+
+Route::get('/refeicoes', 'App\Http\Controllers\RefeicaoController@index');
+Route::get('/refeicoes/novo', 'App\Http\Controllers\RefeicaoController@create');

@@ -9,7 +9,7 @@
 		<title>Intensify by TEMPLATED</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
 	</head>
 	<body>
 
@@ -29,6 +29,7 @@
 				<ul class="links">
 					<li><a href="/">Home</a></li>
 					<li><a href="/pratos">Pratos</a></li>
+					<li><a href="/refeicoes">Refeicões</a></li>
 					<li><a href="elements.html">Elements</a></li>
 				</ul>
 				<ul class="actions vertical">
