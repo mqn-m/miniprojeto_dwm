@@ -21,9 +21,7 @@ Route::get('/', function () {
 Route::get('/pratos', 'App\Http\Controllers\PratoController@index');
 
 
-Route::get('/pratos.novo', function () {
-    return view('pratos.novo');
-});
+Route::get('/pratos/novo', 'App\Http\Controllers\PratoController@create');
 
 
 //refeicoes
