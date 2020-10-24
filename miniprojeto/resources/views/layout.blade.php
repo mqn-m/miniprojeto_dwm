@@ -10,8 +10,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
+<<<<<<< Updated upstream
+=======
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"> -->
+>>>>>>> Stashed changes
 	</head>
 	<body>
+
 
 		<!-- Header -->
 			<header id="header">
@@ -20,7 +25,7 @@
 				</nav>
 				<a href="/" class="logo">Food Tracker</a>
 				<nav class="right">
-					<a href="#" class="button alt">Log in</a>
+					<a href="/users" class="button alt">Log in</a>
 				</nav>
 			</header>
 
@@ -33,7 +38,7 @@
 					<li><a href="elements.html">Elements</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="#" class="button fit">Login</a></li>
+					<li><a href="/users" class="button fit">Login</a></li>
 				</ul>
 			</nav>
 
