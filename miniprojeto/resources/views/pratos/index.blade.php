@@ -13,7 +13,8 @@
                     <h3>{{ $prato->nome }}</h3>
                     <p>{{ $prato->nota }}</p>
                     <h4>{{ $prato->cal }} cals</h4>
-                <a href="pratos/editar/{{ $prato->id }}" class="button small editar">Editar</a>
+                <a href="pratos/editar/{{ $prato->id }}" class=" icon fa-edit botao editar"></a>
+                <a href="" class=" icon fa-trash botao apagar"></a>
                 </div>
             </div>
         @endforeach
