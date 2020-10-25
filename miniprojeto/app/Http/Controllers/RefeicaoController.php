@@ -56,7 +56,7 @@ class RefeicaoController extends Controller
      */
     public function show(Refeicao $refeicao)
     {
-        //
+        return view('refeicoes.show', ['refeicao' => $refeicao]);
     }
 
     /**
@@ -67,7 +67,7 @@ class RefeicaoController extends Controller
      */
     public function edit(Refeicao $refeicao)
     {
-        //
+        return view('refeicoes.editar', ['refeicao' => $refeicao]);
     }
 
     /**
@@ -79,7 +79,15 @@ class RefeicaoController extends Controller
      */
     public function update(Request $request, Refeicao $refeicao)
     {
-        //
+        $validatedatributes = request()->validate([
+            'altura_dia' => ['required'],
+            'data_refeicao' => ['required','date'],
+            'total_cal' => ['required','numeric','min:0'],
+        ]);
+
+        $refeicao->update($validatedatributes);
+
+        return redirect('/refeicoes');
     }
 
     /**
@@ -90,6 +98,7 @@ class RefeicaoController extends Controller
      */
     public function destroy(Refeicao $refeicao)
     {
-        //
+        $refeicao->delete();
+        return redirect('/refeicoes');
     }
 }

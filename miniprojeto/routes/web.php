@@ -41,7 +41,7 @@ Route::post( '/refeicoes' , 'App\Http\Controllers\RefeicaoController@store');  /
 Route::get( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@show');  //show um recurso
 Route::put( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@update');
 Route::delete( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@destroy');
-Route::get( '/refeicoes/{refeicao}/editar' , 'App\Http\Controllers\PessoaController@edit'); 
+Route::get( '/refeicoes/{refeicao}/editar' , 'App\Http\Controllers\RefeicaoController@edit'); 
 
 //users
 Route::get('/users', 'App\Http\Controllers\UserController@store');
