@@ -36,14 +36,12 @@ class PratoController extends Controller
      */
     public function store()
     {
-        $prato = new Prato();
-
-        $prato->nome = request('nome');
-        $prato->cal = request('cal');
-        $prato->nota = request('nota');
-        $prato->user = 1;
-
-        $prato->save();
+        Prato::create([
+            'nome' => request('nome'),
+            'cal' => request('cal'),
+            'nota' => request('nota'),
+            'user' => 1
+        ]);
 
         return redirect('/pratos');
     }
@@ -65,10 +63,9 @@ class PratoController extends Controller
      * @param  \App\Models\Prato  $Prato
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Prato $pratos)
     {
-        $pratos = Prato::find($id);
-        return view('pratos.editar', ['pratos' => $pratos]);
+        return view('pratos.editar', compact('pratos'));
     }
 
     /**
@@ -78,15 +75,13 @@ class PratoController extends Controller
      * @param  \App\Models\Prato  $Prato
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Prato $pratos)
     {
-        $prato = Prato::find($id);
+        $pratos->nome = request('nome');
+        $pratos->cal = request('cal');
+        $pratos->nota = request('nota');
 
-        $prato->nome = request('nome');
-        $prato->cal = request('cal');
-        $prato->nota = request('nota');
-
-        $prato->save();
+        $pratos->save();
 
         return redirect('/pratos');
     }
@@ -99,7 +94,7 @@ class PratoController extends Controller
      */
     public function destroy($id)
     {
-        $prato = Prato::find($id);
+        $prato = Prato::findOrFail($id);
 
         $prato->destroy();
         return redirect('/pratos');

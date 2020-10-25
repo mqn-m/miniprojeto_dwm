@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prato extends Model
 {
+    protected $fillable = ['nome', 'cal', 'nota', 'user'];
+
     use HasFactory;
-    
 }
