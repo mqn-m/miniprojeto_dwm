@@ -78,9 +78,17 @@ class PratoController extends Controller
      * @param  \App\Models\Prato  $Prato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Prato $Prato)
+    public function update($id)
     {
-        //
+        $prato = Prato::find($id);
+
+        $prato->nome = request('nome');
+        $prato->cal = request('cal');
+        $prato->nota = request('nota');
+
+        $prato->save();
+
+        return redirect('/pratos');
     }
 
     /**
