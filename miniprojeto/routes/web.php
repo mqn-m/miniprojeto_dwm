@@ -27,9 +27,10 @@ Route::get('/users/novo', 'App\Http\Controllers\UserController@create');
 //pratos
 
 Route::get('/pratos', 'App\Http\Controllers\PratoController@index');
+Route::post('/pratos','App\Http\Controllers\PratoController@store');
 Route::get('/pratos/novo', 'App\Http\Controllers\PratoController@create');
-Route::get('/pratos/editar/{id}', 'App\Http\Controllers\PratoController@edit');
-
+Route::get('/pratos/{id}/editar/', 'App\Http\Controllers\PratoController@edit');
+Route::put('/pratos/{id}', 'App\Http\Controllers\PratoController@update');
 
 //refeicoes
 

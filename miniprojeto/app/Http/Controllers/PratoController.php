@@ -34,9 +34,18 @@ class PratoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $prato = new Prato();
+
+        $prato->nome = request('nome');
+        $prato->cal = request('cal');
+        $prato->nota = request('nota');
+        $prato->user = 1;
+
+        $prato->save();
+
+        return redirect('/pratos');
     }
 
     /**
