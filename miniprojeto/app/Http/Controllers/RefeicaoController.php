@@ -36,7 +36,16 @@ class RefeicaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedatributes = request()->validate([
+            'altura_dia' => ['required'],
+            'data_refeicao' => ['required','date'],
+            'total_cal' => ['required','numeric','min:0'],
+        ]);
+
+        Refeicao::create(
+            $validatedatributes
+        );
+        return redirect('/refeicoes');
     }
 
     /**

@@ -18,7 +18,7 @@ class CreateRefeicoesTable extends Migration
             $table->enum('altura_dia', ['Pequeno-Almoço', 'Almoço','Jantar','Lanche manhã','Lanche tarde','Ceia']);
             $table->date('data_refeicao');
             $table->integer('total_cal');
-            $table->text('notas');
+            $table->text('notas')->nullable();
             $table->integer('user')->nullable();
             $table->timestamps();
         });

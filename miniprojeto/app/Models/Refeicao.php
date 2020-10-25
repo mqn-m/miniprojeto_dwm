@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Refeicao extends Model
 {
     use HasFactory;
+    protected $fillable  = ['altura_dia','data_refeicao','total_cal','notas'];
 }

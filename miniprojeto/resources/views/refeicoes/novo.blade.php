@@ -6,13 +6,12 @@
         <h1 class="titulo">Adicionar Refeição</h1>
         <div class="row 200%">
             <div class="12u">
-                <form method="post" action="#">
+                <form method="POST" action="/refeicoes">
                     @csrf
                     <div class="row uniform">
                         <div class="12u$">
                             <label for="altura_dia">Altura do Dia:</label>
-                            <select id="altura_dia" name="altura_dia">
-                            <option value="Pequeno-Almoço">'Pequeno-Almoço'</option>
+                            <select id="altura_dia" name="altura_dia" required>
                               <option value="Pequeno-Almoço">'Pequeno-Almoço'</option>
                               <option value="Almoço">Almoço</option>
                               <option value="Jantar">Jantar</option>
@@ -23,12 +22,12 @@
                         </div>
                         <div class="6u 12u$(xsmall)">
                             <label for="data_refeicao">Data da Refeição:</label>
-                            <input type="date" name="data_refeicao" id="data_refeicao" value="" placeholder="Data Refeição" />
+                            <input type="date" name="data_refeicao" id="data_refeicao" value="" placeholder="Data Refeição" required />
                         </div>
                         <div class="6u$ 12u$(xsmall)">
                             <label for="total_cal">Total Calorias:</label>
                             <input type="number" name="total_cal" id="total_cal" value="" placeholder="Calorias"
-                                min="0" />
+                                min="0" required />
                         </div>
                         <!-- Break -->
                         <div class="12u$">
