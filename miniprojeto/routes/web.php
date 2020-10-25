@@ -36,6 +36,11 @@ Route::put('/pratos/{id}', 'App\Http\Controllers\PratoController@update');
 
 Route::get('/refeicoes', 'App\Http\Controllers\RefeicaoController@index');
 Route::get('/refeicoes/novo', 'App\Http\Controllers\RefeicaoController@create');
+Route::post( '/refeicoes' , 'App\Http\Controllers\RefeicaoController@store');  //send form with post
+Route::get( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@show');  //show um recurso
+Route::put( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@update');
+Route::delete( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@destroy');
+Route::get( '/refeicoes/{refeicao}/editar' , 'App\Http\Controllers\PessoaController@edit'); 
 
 //users
 Route::get('/users', 'App\Http\Controllers\UserController@store');
