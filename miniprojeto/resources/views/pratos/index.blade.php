@@ -14,7 +14,7 @@
                     <p>{{ $prato->nota }}</p>
                     <h4>{{ $prato->cal }} cals</h4>
                 <a href="pratos/{{ $prato->id }}/editar/" class=" icon fa-edit botao editar" title="Editar"></a>
-                <a href="" class=" icon fa-trash botao apagar" title="Eliminar"></a>
+                <a href="/pratos/{{ $prato->id }}" class=" icon fa-trash botao apagar" title="Eliminar"></a>
                 </div>
             </div>
         @endforeach
