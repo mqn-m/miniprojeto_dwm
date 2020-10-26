@@ -92,11 +92,10 @@ class PratoController extends Controller
      * @param  \App\Models\Prato  $Prato
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Prato $pratos)
     {
-        $prato = Prato::findOrFail($id);
+        $pratos->delete();
 
-        $prato->destroy();
         return redirect('/pratos');
     }
 }

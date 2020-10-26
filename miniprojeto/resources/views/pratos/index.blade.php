@@ -13,8 +13,12 @@
                     <h3>{{ $prato->nome }}</h3>
                     <p>{{ $prato->nota }}</p>
                     <h4>{{ $prato->cal }} cals</h4>
-                <a href="pratos/{{ $prato->id }}/editar/" class=" icon fa-edit botao editar" title="Editar"></a>
-                <a href="/pratos/{{ $prato->id }}" class=" icon fa-trash botao apagar" title="Eliminar"></a>
+                    <form class="form_apagar"method="POST" action="/pratos/{{ $prato->id }}">
+                        @csrf
+                        @method('delete')
+                        <a href="pratos/{{ $prato->id }}/editar/" class=" icon fa-edit botao editar" title="Editar"></a>
+                        <input type="submit" id="sub" name="sub" value="" class="botao apagar" title="Eliminar">
+                    </form>
                 </div>
             </div>
         @endforeach

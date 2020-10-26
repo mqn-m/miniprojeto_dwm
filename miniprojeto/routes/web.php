@@ -31,7 +31,7 @@ Route::post('/pratos','App\Http\Controllers\PratoController@store');
 Route::get('/pratos/novo', 'App\Http\Controllers\PratoController@create');
 Route::get('/pratos/{pratos}/editar/', 'App\Http\Controllers\PratoController@edit');
 Route::put('/pratos/{pratos}', 'App\Http\Controllers\PratoController@update');
-Route::delete('/pratos/{id}' , 'App\Http\Controllers\PratoController@destroy');
+Route::delete('/pratos/{pratos}' , 'App\Http\Controllers\PratoController@destroy');
 
 //refeicoes
 
