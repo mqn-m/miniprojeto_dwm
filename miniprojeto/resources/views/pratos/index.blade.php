@@ -18,6 +18,7 @@
                         @method('delete')
                         <a href="pratos/{{ $prato->id }}/editar/" class=" icon fa-edit botao editar" title="Editar"></a>
                         <input type="submit" id="sub" name="sub" value="" class="botao apagar" title="Eliminar">
+                        <img src="/images/trash.png" alt="Eliminar" class="UAreTrash">
                     </form>
                 </div>
             </div>

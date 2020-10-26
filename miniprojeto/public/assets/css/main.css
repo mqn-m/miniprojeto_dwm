@@ -2776,6 +2776,13 @@ input[type=number], input[type=date] {
 	right: 1em;
 }
 
+.UAreTrash{
+	position: absolute;
+	bottom: 1.9em;
+	right: 2em;
+	pointer-events: none;
+}
+
 input[type=date] {
 	height: 3.5em;
 	line-height: 3.5em;
