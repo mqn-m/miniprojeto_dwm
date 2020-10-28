@@ -40,6 +40,34 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="idade" class="col-md-4 col-form-label text-md-right">{{ __('Idade') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="idade" type="number" class="form-control @error('idade') is-invalid @enderror" name="idade" value="{{ old('idade') }}" required autocomplete="idade">
+
+                                @error('idade')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="peso" class="col-md-4 col-form-label text-md-right">{{ __('Peso') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="peso" type="number" step="0.010" class="form-control @error('peso') is-invalid @enderror" name="peso" value="{{ old('peso') }}" required autocomplete="peso">
+
+                                @error('peso')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
