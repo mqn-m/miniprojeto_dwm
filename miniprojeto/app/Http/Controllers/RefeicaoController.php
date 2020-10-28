@@ -87,6 +87,7 @@ class RefeicaoController extends Controller
             'altura_dia' => ['required'],
             'data_refeicao' => ['required', 'date'],
             'total_cal' => ['required', 'numeric', 'min:0'],
+            'pratos' => 'exists:pratos,id'
         ]);
 
         $refeicao->update($validatedatributes);
