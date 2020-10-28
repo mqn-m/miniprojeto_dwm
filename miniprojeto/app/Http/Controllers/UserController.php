@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -11,8 +12,37 @@ class UserController extends Controller
     //     return User:: all();
     // }
 
+    public function welcome(){
+        if(Auth::check() == true){
+            dd(Auth::user());
+            return view('welcome');
+
+        }else
+        return redirect('auth/login');
+        
+
+    }
+
+    public function showlogin(){
+        return view('auth/login');
+    }
+
+    public function checklogin(Request $request){
+        var_dump($request->all());
+        $credentials = [
+            'email' => $request->email,
+            'pass' => $request->pass
+
+        ];
+
+        if(Auth::attempt($credentials)){
+            return redirect('usersace');
+        }
+        return redirect()->back()->withInput()->withErrors(['Credenciais erradas']);
+    }
+
     public function create(){
-        return view('users.novo');
+        return view('auth.register');
     }
 
     public function store(){
@@ -35,7 +65,7 @@ class UserController extends Controller
 
         $users->save();
 
-        return redirect('/users');
+        return redirect('/');
         
     }
 

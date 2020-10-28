@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+// [Auth::class]
 
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-// Route::get('lista', 'App\Http\Controllers\UserController@lista');
-Route::get('/users', 'App\Http\Controllers\UserController@store');
-Route::get('/users/novo', 'App\Http\Controllers\UserController@create');
-// Route::get('/users/{user}/edit', 'App\Http\Controllers\UserController@edit');
-
+    
 //pratos
 
 Route::get('/pratos', 'App\Http\Controllers\PratoController@index');
@@ -43,6 +42,11 @@ Route::put( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@u
 Route::delete( '/refeicoes/{refeicao}' , 'App\Http\Controllers\RefeicaoController@destroy');
 Route::get( '/refeicoes/{refeicao}/editar' , 'App\Http\Controllers\RefeicaoController@edit'); 
 
+
+});
+
 //users
-Route::get('/users', 'App\Http\Controllers\UserController@store');
-Route::get('/users/novo', 'App\Http\Controllers\UserController@create');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
