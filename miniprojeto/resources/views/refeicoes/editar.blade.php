@@ -30,7 +30,7 @@
                                 <label for="pratos">Pratos:</label>
                                 <select id="pratos" name="pratos[]" multiple required>
                                     @foreach ($pratos as $prato)
-                                        <option value="{{ $prato->id }}" @foreach ($refeicao->pratos as $p)
+                                        <option data-cals={{ $prato->cal }} value="{{ $prato->id }}" @foreach ($refeicao->pratos as $p)
                                             @if ($prato->id == $p->id)
                                                 selected="selected"
                                             @endif
@@ -64,4 +64,9 @@
         </div>
 
     </section>
+@endsection
+
+
+@section('scripts')
+    <script src="/js/script_refeicoes.js"></script>
 @endsection

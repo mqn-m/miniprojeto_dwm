@@ -24,9 +24,10 @@
                             --}}
                             <div class="12u$">
                                 <label for="pratos">Pratos:</label>
-                                <select id="pratos" name="pratos[]" multiple required>
+                                <select id="pratos" name="pratos[]" multiple >
                                     @foreach ($pratos as $prato)
-                                        <option value="{{ $prato->id }}"> Prato: {{ $prato->nome }} - {{ $prato->cal }} cals
+                                        <option data-cals={{ $prato->cal }} value="{{ $prato->id }}"> Prato:
+                                            {{ $prato->nome }} - {{ $prato->cal }} cals
                                         </option>
                                     @endforeach
                                 </select>
@@ -38,8 +39,8 @@
                             </div>
                             <div class="6u$ 12u$(xsmall)">
                                 <label for="total_cal">Total Calorias:</label>
-                                <input type="number" name="total_cal" id="total_cal" value="" placeholder="Calorias" min="0"
-                                    required />
+                                <input type="number" min="0" name="total_cal" id="total_cal" value="" placeholder="Calorias"
+                                    min="0" required />
                             </div>
                             <!-- Break -->
                             <div class="12u$">
@@ -61,6 +62,10 @@
         </div>
 
     </section>
+@endsection
+
+@section('scripts')
+    <script src="/js/script_refeicoes.js"></script>
 @endsection
 
 {{-- nota: por fazer
