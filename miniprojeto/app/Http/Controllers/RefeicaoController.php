@@ -15,7 +15,7 @@ class RefeicaoController extends Controller
      */
     public function index()
     {
-        $refeicaos = Refeicao::where('user_id',auth()->id())->orderBy('data_refeicao', 'desc')->get();
+        $refeicaos = Refeicao::where('user_id', auth()->id())->orderBy('data_refeicao', 'desc')->get();
         return view('refeicoes.index', ['refeicaos' => $refeicaos]);
     }
 
@@ -37,13 +37,10 @@ class RefeicaoController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedatributes = request()->validate([
-            'altura_dia' => ['required'],
-            'data_refeicao' => ['required', 'date'],
-            'total_cal' => ['required', 'numeric', 'min:0'],
-        ]);
+        $this->validateRefeicao();
 
-        $refeicao = new Refeicao($validatedatributes);
+        $refeicao = new Refeicao(request(['altura_dia', 'data_refeicao', 'total_cal', 'notas']));
+
         $refeicao->user_id = auth()->id();
         $refeicao->save();
 
@@ -71,7 +68,7 @@ class RefeicaoController extends Controller
      */
     public function edit(Refeicao $refeicao)
     {
-        return view('refeicoes.editar', ['refeicao' => $refeicao]);
+        return view('refeicoes.editar', ['refeicao' => $refeicao, 'pratos' => Prato::all()]);
     }
 
     /**
@@ -83,14 +80,17 @@ class RefeicaoController extends Controller
      */
     public function update(Request $request, Refeicao $refeicao)
     {
-        $validatedatributes = request()->validate([
-            'altura_dia' => ['required'],
-            'data_refeicao' => ['required', 'date'],
-            'total_cal' => ['required', 'numeric', 'min:0'],
-            'pratos' => 'exists:pratos,id'
-        ]);
+        $this->validateRefeicao();
 
-        $refeicao->update($validatedatributes);
+        $refeicao->total_cal = request('notas');
+        $refeicao->altura_dia = request('altura_dia');
+        $refeicao->data_refeicao = request('data_refeicao');
+        $refeicao->total_cal = request('total_cal');
+        $refeicao->notas = request('notas');
+
+        $refeicao->save();
+
+        $refeicao->pratos()->sync(request('pratos'));
 
         return redirect('/refeicoes');
     }
@@ -105,5 +105,16 @@ class RefeicaoController extends Controller
     {
         $refeicao->delete();
         return redirect('/refeicoes');
+    }
+
+
+    public function validateRefeicao()
+    {
+        request()->validate([
+            'altura_dia' => ['required'],
+            'data_refeicao' => ['required', 'date'],
+            'total_cal' => ['required', 'numeric', 'min:0'],
+            'pratos' => ['exists:pratos,id']
+        ]);
     }
 }

@@ -41,7 +41,9 @@
                                 <form method="POST" action="/refeicoes/{{ $refeicao->id }}">
                                     @csrf
                                     @method('delete')
-                                    <li><input type="button" value="Editar" /></li>
+                                    <li>
+                                        <a href="{{ $refeicao->id }}/editar"><input type="button" value="Editar" /></a>
+                                        </li>
                                     <li><input type="submit" value="Eliminar" class="alt" /></li>
                                 </form>
                             </ul>
