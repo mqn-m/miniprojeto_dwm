@@ -20,7 +20,7 @@ class Prato extends Model
      //uma prato pode estar em muitas refeicoes
      public function refeicoes() 
      {
-         return $this->hasMany(Refeicao::class);
+         return $this->belongsToMany(Refeicao::class);
  
      }
 }

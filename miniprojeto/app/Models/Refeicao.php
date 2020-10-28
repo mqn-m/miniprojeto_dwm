@@ -14,7 +14,7 @@ class Refeicao extends Model
     //uma refeicao tem muitos pratos
     public function pratos() 
     {
-        return $this->hasMany(Prato::class);
+        return $this->belongsToMany(Prato::class);
 
     }
 

@@ -17,21 +17,22 @@ class CreateRefeicoesTable extends Migration
             $table->id();
             $table->enum('altura_dia', ['Pequeno-Almoço', 'Almoço', 'Jantar', 'Lanche manhã', 'Lanche tarde', 'Ceia']);
             $table->date('data_refeicao');
-            $table->integer('total_cal');
+            $table->integer('total_cal')->nullable();
             $table->text('notas')->nullable();
-            $table->integer('user')->nullable();
+            $table->integer('user_id')->nullable(); //falta chave estrangeira
             $table->timestamps();
         });
 
-        Schema::create('refeicaos_pratos', function (Blueprint $table) {
+
+        Schema::create('prato_refeicao', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('refeicaos_id');
-            $table->unsignedBigInteger('pratos_id');
+            $table->unsignedBigInteger('refeicao_id');
+            $table->unsignedBigInteger('prato_id');
             $table->timestamps();
 
-            $table->unique(['refeicaos_id', 'pratos_id']);
-            $table->foreign('pratos_id')->references('id')->on('pratos')->onDelete('cascade');
-            $table->foreign('refeicaos_id')->references('id')->on('refeicaos')->onDelete('cascade');
+            $table->unique(['refeicao_id', 'prato_id']);
+            $table->foreign('prato_id')->references('id')->on('pratos')->onDelete('cascade');
+            $table->foreign('refeicao_id')->references('id')->on('refeicaos')->onDelete('cascade');
         });
     }
 
