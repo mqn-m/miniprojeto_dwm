@@ -10,4 +10,17 @@ class Prato extends Model
     protected $fillable = ['nome', 'cal', 'nota', 'user'];
 
     use HasFactory;
+
+    // //quando autenticacao
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+
+     //uma prato pode estar em muitas refeicoes
+     public function refeicoes() 
+     {
+         return $this->belongsToMany(Refeicao::class);
+ 
+     }
 }

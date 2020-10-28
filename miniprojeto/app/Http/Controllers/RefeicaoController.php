@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prato;
 use App\Models\Refeicao;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class RefeicaoController extends Controller
      */
     public function create()
     {
-        return view('refeicoes.novo');
+        return view('refeicoes.novo', ['pratos' => Prato::all()]);
     }
 
     /**
@@ -38,13 +39,16 @@ class RefeicaoController extends Controller
     {
         $validatedatributes = request()->validate([
             'altura_dia' => ['required'],
-            'data_refeicao' => ['required','date'],
-            'total_cal' => ['required','numeric','min:0'],
+            'data_refeicao' => ['required', 'date'],
+            'total_cal' => ['required', 'numeric', 'min:0'],
         ]);
 
-        Refeicao::create(
-            $validatedatributes
-        );
+        $refeicao = new Refeicao($validatedatributes);
+        $refeicao->user_id =1; //auth()->id()
+        $refeicao->save();
+
+        $refeicao->pratos()->attach(request('pratos'));
+
         return redirect('/refeicoes');
     }
 
@@ -81,8 +85,8 @@ class RefeicaoController extends Controller
     {
         $validatedatributes = request()->validate([
             'altura_dia' => ['required'],
-            'data_refeicao' => ['required','date'],
-            'total_cal' => ['required','numeric','min:0'],
+            'data_refeicao' => ['required', 'date'],
+            'total_cal' => ['required', 'numeric', 'min:0'],
         ]);
 
         $refeicao->update($validatedatributes);

@@ -5,6 +5,15 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
+	<head>
+		<title>Food Tracker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="icon" href="/images/Flogo.png">
+		@yield('style');
+	</head>
+	<body>
 
 <head>
     <title>Food Tracker</title>

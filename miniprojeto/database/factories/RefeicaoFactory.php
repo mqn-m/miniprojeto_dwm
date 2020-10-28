@@ -26,7 +26,7 @@ class RefeicaoFactory extends Factory
             'data_refeicao' =>$this->faker->date($format = 'Y-m-d', $max = 'now'),
             'total_cal' => $this->faker->numberBetween($min = 100, $max = 5000),
             'notas' => $this->faker->sentence,
-            'user' =>$this->faker->randomDigit
+            'user_id' =>$this->faker->randomDigit
         ];
     }
 }

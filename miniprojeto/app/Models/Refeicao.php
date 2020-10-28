@@ -9,4 +9,19 @@ class Refeicao extends Model
 {
     use HasFactory;
     protected $fillable  = ['altura_dia','data_refeicao','total_cal','notas'];
+
+
+    //uma refeicao tem muitos pratos
+    public function pratos() 
+    {
+        return $this->belongsToMany(Prato::class);
+
+    }
+
+    // //quando autenticacao
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+
 }
