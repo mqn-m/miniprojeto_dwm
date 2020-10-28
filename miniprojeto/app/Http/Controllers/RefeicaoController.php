@@ -15,7 +15,7 @@ class RefeicaoController extends Controller
      */
     public function index()
     {
-        $refeicaos = Refeicao::orderBy('data_refeicao', 'desc')->get();
+        $refeicaos = Refeicao::where('user_id',auth()->id())->orderBy('data_refeicao', 'desc')->get();
         return view('refeicoes.index', ['refeicaos' => $refeicaos]);
     }
 
@@ -26,7 +26,7 @@ class RefeicaoController extends Controller
      */
     public function create()
     {
-        return view('refeicoes.novo', ['pratos' => Prato::all()]);
+        return view('refeicoes.novo', ['pratos' => Prato::all()]); //só os do user que entrou
     }
 
     /**
@@ -44,7 +44,7 @@ class RefeicaoController extends Controller
         ]);
 
         $refeicao = new Refeicao($validatedatributes);
-        $refeicao->user_id =1; //auth()->id()
+        $refeicao->user_id = auth()->id();
         $refeicao->save();
 
         $refeicao->pratos()->attach(request('pratos'));

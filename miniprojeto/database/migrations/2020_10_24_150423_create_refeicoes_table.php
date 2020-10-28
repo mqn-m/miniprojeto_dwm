@@ -19,8 +19,10 @@ class CreateRefeicoesTable extends Migration
             $table->date('data_refeicao');
             $table->integer('total_cal')->nullable();
             $table->text('notas')->nullable();
-            $table->integer('user_id')->nullable(); //falta chave estrangeira
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
 
