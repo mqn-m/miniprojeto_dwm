@@ -48,7 +48,6 @@
             <li><a href="/">Home</a></li>
             <li><a href="/pratos">Pratos</a></li>
             <li><a href="/refeicoes">Refeicões</a></li>
-            <li><a href="elements.html">Elements</a></li>
         </ul>
         <ul class="actions vertical">
             <li><a href="/login" class="button fit">Login</a></li> <!-- log out -->
