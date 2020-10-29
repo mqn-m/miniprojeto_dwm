@@ -2,6 +2,8 @@ document.getElementById("pratos").addEventListener("change", function () {
     getSelectedOptions();
 });
 
+
+
 function getSelectedOptions() {
     var total_cals = 0;
     var options = [];
@@ -22,3 +24,9 @@ function getSelectedOptions() {
     }
     console.log("Total " + total_cals);
 }
+
+$('option').mousedown(function(e) {
+    e.preventDefault();
+    $(this).prop('selected', !$(this).prop('selected'));
+    return false;
+});

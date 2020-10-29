@@ -65,6 +65,7 @@
 @endsection
 
 @section('scripts')
+
     <script src="/js/script_refeicoes.js"></script>
 @endsection
 
