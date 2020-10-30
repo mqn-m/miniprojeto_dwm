@@ -48,7 +48,6 @@
             <li><a href="/">Home</a></li>
             <li><a href="/pratos">Pratos</a></li>
             <li><a href="/refeicoes">Refeicões</a></li>
-            <li><a href="elements.html">Elements</a></li>
         </ul>
         <ul class="actions vertical">
             <li><a href="/login" class="button fit">Login</a></li> <!-- log out -->
@@ -74,12 +73,12 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/skel.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+	@yield('scripts');
 </body>
 
 </html>

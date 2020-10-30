@@ -11,11 +11,11 @@ class Prato extends Model
 
     use HasFactory;
 
-    // //quando autenticacao
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    //quando autenticacao
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
      //uma prato pode estar em muitas refeicoes
      public function refeicoes() 

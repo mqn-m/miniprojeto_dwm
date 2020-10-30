@@ -2797,3 +2797,10 @@ input[type=date] {
 	text-decoration: none;
 	width: 100%;
 }
+
+select[multiple]{
+	height: auto;
+	overflow: hidden;
+}
+
+

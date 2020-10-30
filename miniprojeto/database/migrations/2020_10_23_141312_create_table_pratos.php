@@ -19,7 +19,10 @@ class CreateTablePratos extends Migration
             $table->integer('cal');
             $table->text('nota');
             $table->timestamps();
-            $table->integer('user')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -18,10 +18,10 @@ class Refeicao extends Model
 
     }
 
-    // //quando autenticacao
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    //quando autenticacao
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }
