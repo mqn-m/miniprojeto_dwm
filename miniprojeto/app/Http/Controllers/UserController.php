@@ -12,94 +12,39 @@ class UserController extends Controller
     //     return User:: all();
     // }
 
-    public function welcome(){
-        if(Auth::check() == true){
-            dd(Auth::user());
-            return view('welcome');
+    
+    public function show(User $user)
+    {
+        return view('auth.info', ['user' => $user]);
+    }
 
-        }else
-        return redirect('auth/login');
+
+    public function edit(User $user){
+
+        return view('auth.perfil', ['user' => $user]);
+    }
+
+    public function update($id){
         
+        $user = User::find($id);
 
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->idade = request('idade');
+        $user->peso = request('peso');
+
+        $user->save();
+
+        return redirect('/perfil');
+        
     }
 
-    public function showlogin(){
-        return view('auth/login');
-    }
-
-    public function checklogin(Request $request){
-        var_dump($request->all());
-        $credentials = [
-            'email' => $request->email,
-            'pass' => $request->pass
-
-        ];
-
-        if(Auth::attempt($credentials)){
-            return redirect('usersace');
-        }
-        return redirect()->back()->withInput()->withErrors(['Credenciais erradas']);
-    }
-
-    public function create(){
-        return view('auth.register');
-    }
-
-    public function store(){
-
-        request()->validate([
-            'nome' => 'required',
-            'email' => 'required',
-            'pass' => 'required',
-            'idade' => 'required',
-            'peso' => 'required'
-        ]);
-
-        $users = new User();
-
-        $users->nome = request('nome');
-        $users->email = request('email');
-        $users->pass = request('pass');
-        $users->idade = request('idade');
-        $users->peso = request('peso');
-
-        $users->save();
-
+    public function destroy(User $user){
+        
+        $user->delete();
         return redirect('/');
-        
+
     }
-
-    // public function edit($id){
-        
-    //     $users = User::find($id);
-
-    //     return view('user.edit', compact('user'));
-    // }
-
-    // public function update($id){
-        
-    //     request()->validate([
-    //         'nome' => 'required',
-    //         'email' => 'required',
-    //         'pass' => 'required',
-    //         'idade' => 'required',
-    //         'peso' => 'required'
-    //     ]);
-
-
-    //     $users = User::find($id);
-
-    //     $users->nome = request('nome');
-    //     $users->email = request('email');
-    //     $users->pass = request('pass');
-    //     $users->idade = request('idade');
-    //     $users->peso = request('peso');
-
-    //     $users->save();
-
-    //     return redirect('/user' . $users->id);
-        
-    // }
 
 
 }

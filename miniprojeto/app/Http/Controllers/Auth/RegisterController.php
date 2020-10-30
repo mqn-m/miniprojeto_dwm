@@ -74,4 +74,8 @@ class RegisterController extends Controller
             'peso' => $data['peso']
         ]);
     }
+
+    
+
+
 }
