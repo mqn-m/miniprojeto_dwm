@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('style')
+    <link rel="stylesheet" href="/vanillaSelectBox-master/vanillaSelectBox.css">
+@endsection
+
 @section('content')
     <section class="wrapper">
         <div class="inner">
@@ -28,7 +32,7 @@
                             </div>
                             <div class="12u$">
                                 <label for="pratos">Pratos:</label>
-                                <select id="pratos" name="pratos[]" multiple required>
+                                <select id="pratos" name="pratos[]" multiple size="3">
                                     @foreach ($pratos as $prato)
                                         <option data-cals={{ $prato->cal }} value="{{ $prato->id }}" @foreach ($refeicao->pratos as $p)
                                             @if ($prato->id == $p->id)
@@ -68,5 +72,9 @@
 
 
 @section('scripts')
+    <script src="/vanillaSelectBox-master/vanillaSelectBox.js"></script>
     <script src="/js/script_refeicoes.js"></script>
+    <script>
+        let mySelect = new vanillaSelectBox("#pratos");
+    </script>
 @endsection

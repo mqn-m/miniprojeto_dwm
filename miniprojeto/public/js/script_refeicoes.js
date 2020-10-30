@@ -22,9 +22,3 @@ function getSelectedOptions() {
     }
     console.log("Total " + total_cals);
 }
-
-$('option').mousedown(function(e) {
-    e.preventDefault();
-    $(this).prop('selected', !$(this).prop('selected'));
-    return false;
-});
