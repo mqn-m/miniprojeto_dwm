@@ -2,8 +2,6 @@ document.getElementById("pratos").addEventListener("change", function () {
     getSelectedOptions();
 });
 
-
-
 function getSelectedOptions() {
     var total_cals = 0;
     var options = [];
