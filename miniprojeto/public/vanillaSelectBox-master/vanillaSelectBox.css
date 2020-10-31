@@ -1,3 +1,4 @@
+
 .hidden-search {
 	display: none !important;
 }
@@ -8,12 +9,13 @@
   display:none;
   position:absolute;/*Don't change*/
   border:1px solid #B2B2B2;
-  background-color: #fff;
+  background-color: #f6f6f6;
   background-clip: padding-box;
   border: 1px solid rgba(0,0,0,.15);
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
   border-radius:4px;
   font-size : 11px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .vsb-js-search-zone{
@@ -46,8 +48,8 @@
 	background-color: #fff;
 	min-height:1.4em;
 	padding: 0.2em;
+	background: rgba(144, 144, 144, 0.075);
 }
-
 .vsb-menu li:hover {
 	background: linear-gradient(#f5f5f5, #e8e8e8);
 }
@@ -64,6 +66,7 @@
 	color: #333;
 	cursor:pointer;
 	overflow-y:auto;
+	background: #f6f6f6;
 }
 
 li.disabled{
@@ -73,17 +76,25 @@ li.disabled{
 }
 
 .vsb-main button{
-	min-width: 120px;
-	border-radius: 0;
+	text-transform:capitalize;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	font-size: 13pt;
+	font-weight: 300;
+	height: 3.5em;
+	line-height: 3.5em;
+	appearance: none;
+	background: #f6f6f6;
+	border-radius: 4px;
+	border: solid 1px #dee1e3;
+	color: inherit;
+	display: block;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;
 	width: 100%;
-	text-align: left;
-	z-index: 1;
-	color: #333;
-	background: white !important;
-	border: 1px solid #999 !important;
-	line-height:20px;
-	font-size:14px;
-	padding:6px 12px;
+}
+.vsb-main button:hover{
+	background-color: rgba(144, 144, 144, 0.075);
 }
 
 .vsb-main button.disabled{
@@ -132,10 +143,11 @@ li.disabled{
 }
 
 .vsb-menu .multi li {
-	font-size: 14px;
-	background-color: #fff;
+	font-size: 13px;
+	background-color: #f6f6f6;
 	min-height:1.4em;
 	padding: 0.2em 2em 0.2em 26px;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .vsb-menu .multi li.grouped-option {
