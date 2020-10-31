@@ -24,6 +24,7 @@
             </div>
         @endforeach
     </div>
+    <div class="paginacao">{{ $pratos->links("pagination::bootstrap-4") }}</div>
 
 </section>
 @endsection

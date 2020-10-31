@@ -15,7 +15,7 @@ class RefeicaoController extends Controller
      */
     public function index()
     {
-        $refeicaos = Refeicao::where('user_id', auth()->id())->orderBy('data_refeicao', 'desc')->get();
+        $refeicaos = Refeicao::where('user_id', auth()->id())->orderBy('data_refeicao', 'desc')->paginate(15);
         return view('refeicoes.index', ['refeicaos' => $refeicaos]);
     }
 

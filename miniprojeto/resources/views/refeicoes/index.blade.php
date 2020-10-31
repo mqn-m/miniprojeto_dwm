@@ -8,6 +8,9 @@
     </div>
     
     <div class="inner">
+        @if(count($refeicaos) === 0)
+        <h3 style="color: #727a82;" class="sem-pratos-refeicoes">Não tem refeições criadas ainda</h3>
+        @else
         @foreach($refeicaos as $refeicao)
         <div class="cartao">
             <a href="/refeicoes/{{ $refeicao->id }}">
@@ -27,6 +30,8 @@
             </a>
         </div>
         @endforeach
+        @endif
     </div>
+    <div class="paginacao">{{ $refeicaos->links("pagination::bootstrap-4") }}</div>
 </section>
 @endsection

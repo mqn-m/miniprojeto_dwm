@@ -14,7 +14,7 @@ class PratoController extends Controller
      */
     public function index()
     {
-        $pratos = Prato::where('user_id', auth()->id())->orderBy('nome','asc')->get();
+        $pratos = Prato::where('user_id', auth()->id())->orderBy('nome','asc')->paginate(15);
         return view('pratos.index', ['pratos' => $pratos]);
     }
 
