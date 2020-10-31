@@ -14,7 +14,7 @@ class PratoController extends Controller
      */
     public function index()
     {
-        $pratos = Prato::latest()->get();
+        $pratos = Prato::where('user_id', auth()->id())->orderBy('nome','asc')->get();
         return view('pratos.index', ['pratos' => $pratos]);
     }
 
@@ -36,12 +36,10 @@ class PratoController extends Controller
      */
     public function store()
     {
-        Prato::create([
-            'nome' => request('nome'),
-            'cal' => request('cal'),
-            'nota' => request('nota'),
-            'user' => 1
-        ]);
+        $prato = new Prato(request(['nome','cal','nota']));
+        $prato->user_id = auth()->id();
+        $prato->save();
+        
 
         return redirect('/pratos');
     }
