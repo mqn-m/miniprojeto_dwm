@@ -56,7 +56,7 @@
                             <div class="12u$">
                                 <ul class="actions">
                                     <li><input type="submit" value="Guardar" /></li>
-                                    <li><input type="button" value="Cancelar" class="alt" /></li>
+                                    <li><a href="/refeicoes"><input type="button" value="Cancelar" class="alt" /></a></li>
                                 </ul>
                             </div>
                         </div>
