@@ -2804,3 +2804,18 @@ select[multiple]{
 }
 
 
+.nome_perfil{
+	display: inline;
+	color: #25a2c3;
+}
+.nome_perfil:hover{
+	color: #f6755e;
+}
+
+#logout-form{
+	display: inline-block;
+}
+
+#logout-form button{
+	margin-left: 20px;
+}

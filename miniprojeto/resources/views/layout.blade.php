@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<link rel="icon" href="/images/Flogo.png">
-		@yield('style');
+		@yield('style')
 	</head>
 	<body>
 
@@ -33,10 +33,10 @@
         </nav>
         <a href="/" class="logo">Food Tracker</a>
         <nav class="right">
-            Bem vindo(a), {{ Auth::user()->name }}
+            <a class="nome_perfil" href="/perfil"> Bem vindo(a), {{ Auth::user()->name }}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 				@csrf
-			<button type="submit" class="button alt">LOG OUT</button>
+			<button type="submit" class="button small">LOG OUT</button>
             </form>
 
         </nav>
