@@ -2327,7 +2327,7 @@ body {
 	-ms-transition: -ms-transform 0.5s ease, visibility 0.5s;
 	transition: transform 0.5s ease, visibility 0.5s;
 	-webkit-overflow-scrolling: touch;
-	background: #25a2c3;
+	background: #f6755e;
 	color: #ffffff;
 	height: 100%;
 	max-width: 80%;
@@ -2384,7 +2384,7 @@ body {
 	transition: color 0.2s ease-in-out;
 	-webkit-tap-highlight-color: transparent;
 	border: 0;
-	color: #a7d9e7;
+	color: white;
 	cursor: pointer;
 	display: block;
 	height: 3.25em;
