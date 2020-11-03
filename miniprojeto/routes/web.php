@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     });
 
 
+
     //pratos
 
     Route::get('/pratos', 'App\Http\Controllers\PratoController@index');
@@ -46,6 +47,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/perfil/{user}/edit', 'App\Http\Controllers\UserController@edit');
     Route::put('/perfil/{user}', 'App\Http\Controllers\UserController@update');
     Route::delete('/perfil/{user}', 'App\Http\Controllers\UserController@destroy');
+
+
+    Route::fallback(function(){
+        return view('errors.404');
+    });
+    
 });
 
 //users

@@ -16,7 +16,7 @@
                             <div class="12u$">
                                 <label for="altura_dia">Altura do Dia:</label>
                                 <select id="altura_dia" name="altura_dia" required>
-                                    <option value="Pequeno-Almoço">'Pequeno-Almoço'</option>
+                                    <option value="Pequeno-Almoço">Pequeno-Almoço</option>
                                     <option value="Almoço">Almoço</option>
                                     <option value="Jantar">Jantar</option>
                                     <option value="Lanche manhã">Lanche manhã</option>

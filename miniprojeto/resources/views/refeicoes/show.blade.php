@@ -17,14 +17,19 @@
                         </div>
                         <div class="12u$">
                             <label for="pratos">Pratos:</label>
-                            <ul>
-                                @foreach ($refeicao->pratos as $prato)
-                                    <li>
-                                        Nome: {{ $prato->nome }} <br>
-                                        Calorias: {{ $prato->cal }}
-                                    </li>
-                                @endforeach
-                            </ul>
+                            @if (count($refeicao->pratos) === 0)
+                                <strong>Sem pratos registados!</strong>
+                            @else
+                                <ul>
+
+                                    @foreach ($refeicao->pratos as $prato)
+                                        <li>
+                                            <strong>{{ $prato->nome }}</strong>: {{ $prato->cal }} cals
+                                        </li>
+                                    @endforeach
+                                </ul>
+
+                            @endif
                         </div>
                         <div class="12u$">
                             <label for="total_cal">Total Calorias:</label>
@@ -33,7 +38,11 @@
                         <!-- Break -->
                         <div class="12u$">
                             <label for="notas">Descrição:</label>
-                            <div>{{ $refeicao->notas }}</div>
+                            @if ($refeicao->notas == null)
+                                <strong>Sem descrição!</strong>
+                            @else
+                                <div>{{ $refeicao->notas }}</div>
+                            @endif
                         </div>
                         <!-- Break -->
                         <div class="12u$">
@@ -43,7 +52,7 @@
                                     @method('delete')
                                     <li>
                                         <a href="{{ $refeicao->id }}/editar"><input type="button" value="Editar" /></a>
-                                        </li>
+                                    </li>
                                     <li><input type="submit" value="Eliminar" class="alt" /></li>
                                 </form>
                             </ul>
