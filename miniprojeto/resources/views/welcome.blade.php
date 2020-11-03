@@ -62,7 +62,7 @@
     <!-- Three -->
         <section id="three" class="wrapper">
             <div class="inner flex flex-3">
-                <a href="">
+                <a class="hiperligacoes" href="">
                     <div class="flex-item box">
                         <div class="image fit">
                             <img src="images/pic02.jpg" alt="" />
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
+                <a class="hiperligacoes" href="">
                     <div class="flex-item box">
                         <div class="image fit">
                             <img src="images/pic03.jpg" alt="" />
@@ -84,14 +84,14 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
+                <a class="hiperligacoes" href="">
                     <div class="flex-item box">
                         <div class="image fit">
                             <img src="images/pic04.jpg" alt="" />
                         </div>
                         <div class="content">
                             <h3>Estatísticas</h3>
-                            <p>Veja a estatísticas dos seus hábitos alimentares e veja como melhorar</p>
+                            <p>Veja a estatísticas dos seus hábitos alimentares</p>
                         </div>
                     </div>
                 </a>
