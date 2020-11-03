@@ -62,7 +62,7 @@
     <!-- Three -->
         <section id="three" class="wrapper">
             <div class="inner flex flex-3">
-                <a class="hiperligacoes" href="">
+                <a class="hiperligacoes" href="/pratos">
                     <div class="flex-item box">
                         <div class="image fit">
                             <img src="images/pic02.jpg" alt="" />
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </a>
-                <a class="hiperligacoes" href="">
+                <a class="hiperligacoes" href="/refeicoes">
                     <div class="flex-item box">
                         <div class="image fit">
                             <img src="images/pic03.jpg" alt="" />
