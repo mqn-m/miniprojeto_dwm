@@ -9,8 +9,6 @@
                 <form method="POST" action="/pratos">
                     @csrf
                     <div class="row uniform">
-
-
                         <div class="6u 12u$(xsmall) @error('nome') input_erro @enderror">
                             <label for="nome">Nome:</label>
                         <input class="" type="text" name="nome" id="nome" value="{{old('nome')}}" placeholder="Nome"/>

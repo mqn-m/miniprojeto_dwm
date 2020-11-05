@@ -80,6 +80,11 @@ class PratoController extends Controller
      */
     public function update(Prato $pratos)
     {
+        request()->validate([
+            'nome' => 'required',
+            'cal' => ['required', 'min:0']
+        ]);
+
         $pratos->nome = request('nome');
         $pratos->cal = request('cal');
         $pratos->nota = request('nota');
