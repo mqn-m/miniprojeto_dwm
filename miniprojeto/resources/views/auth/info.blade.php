@@ -1,72 +1,73 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Perfil') }}</div>
+<div class="wrapper">
+    <div class="">
+        <div class="inner">
+            <h1 class="titulo">{{ __('Perfil') }}</h1>
 
-                <div class="card-body">
+            <div class="content">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                <div class="row uniform">
+                        <div class="12u$">
+                    <label for="name" class="">{{ __('Nome') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" readonly>
-                                
-                            </div>
-                        </div>
+                        <input id="name" type="text" name="name" value="{{ Auth::user()->name }}" required
+                            autocomplete="name" readonly>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    </div>
+                </div>
+                <div class="row uniform">
+                        <div class="12u$">
+                    <label for="email" class="">{{ __('E-Mail') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" name="email" value="{{ Auth::user()->email }}" required autocomplete="email" readonly>
-                                
+                    
+                        <input id="email" type="email" name="email" value="{{ Auth::user()->email }}" required
+                            autocomplete="email" readonly>
 
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="idade" class="col-md-4 col-form-label text-md-right">{{ __('Idade') }}</label>
+                    </div>
+                </div>
 
-                            <div class="col-md-6">
-                                <input id="idade" type="number" name="idade" value="{{ Auth::user()->idade }}" required autocomplete="idade" readonly>
-                                
+                <div class="row uniform">
+                        <div class="12u$">
+                    <label for="idade" class="">{{ __('Idade') }}</label>
 
-                            </div>
-                        </div>
+                    
+                        <input id="idade" type="number" name="idade" value="{{ Auth::user()->idade }}" required
+                            autocomplete="idade" readonly>
 
-                        <div class="form-group row">
-                            <label for="peso" class="col-md-4 col-form-label text-md-right">{{ __('Peso') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="peso" type="number" step="0.010" name="peso" value="{{ Auth::user()->peso }}" required autocomplete="peso" readonly>
-                                
+                    </div>
+                </div>
 
-                            </div>
-                        </div>
+                <div class="row uniform">
+                        <div class="12u$">
+                    <label for="peso" class="">{{ __('Peso') }}</label>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                            <a href="/perfil/{{ Auth::user()->id }}/edit"><button class="btn btn-primary">
-                                    {{ __('Editar') }}
-                                </button></a>
-                            </div>
-                        </div><br> <span>
-                            <form method="POST" action="/perfil/{{Auth::user()->id}}">
+                    
+                        <input id="peso" type="number" step="0.010" name="peso" value="{{ Auth::user()->peso }}"
+                            required autocomplete="peso" readonly>
+
+
+                    </div>
+                </div>
+                <br>
+
+                <div class="12u$">
+                    <ul class="actions">
+                        <form method="POST" action="/perfil/{{ Auth::user()->id }}">
                             @csrf
                             @method('DELETE')
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Apagar') }}
-                                </button>
-                            </div>
-                        </div>
+                            <li><a href="/perfil/{{ Auth::user()->id }}/edit"><input type="button"
+                                        value="{{ __('Editar') }}" /></a></li>
+                            <li>
+                                <input type="submit" class="alt"
+                                value="{{ __('Remover Conta') }}">
+                                </input>
                         </form>
-                        </span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

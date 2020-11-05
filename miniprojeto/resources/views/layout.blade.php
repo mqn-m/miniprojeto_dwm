@@ -33,7 +33,7 @@
         </nav>
         <a href="/" class="logo">Food Tracker</a>
         <nav class="right">
-            <a class="nome_perfil" href="/perfil"> Bem vindo(a), {{ Auth::user()->name }}</a>
+          Bem vindo(a),  <a href="/perfil" class="nome_perfil fit alt" >{{ Auth::user()->name }}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 				@csrf
 			<button type="submit" class="button small">LOG OUT</button>
@@ -48,9 +48,13 @@
             <li><a href="/">Home</a></li>
             <li><a href="/pratos">Pratos</a></li>
             <li><a href="/refeicoes">Refeicões</a></li>
+            <li><a href="/perfil">Perfil</a></li>
         </ul>
         <ul class="actions vertical">
-            <li><a href="/login" class="button fit">Login</a></li> <!-- log out -->
+            <li> <form action="{{ route('logout') }}" method="POST" class="d-none">
+				@csrf
+			<button type="submit" class="button fit">LOG OUT</button>
+            </form> </li> <!-- log out -->
         </ul>
     </nav>
 
