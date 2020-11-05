@@ -2,9 +2,14 @@
 
 @section('content')
     <section id="three" class="wrapper">
-        <h1 class="titulo">Refeições </h1>
+        
         <div class="inner" style="text-align: right;">
-            <a href="refeicoes/novo" class="button special small">Adicionar</a>
+            <h1 class="titulo">Refeições </h1>
+            <div class="12u$">
+                <ul class="actions">
+                    <li><input type="button" class="small special" value="Adicionar" onclick="location.href='/refeicoes/novo'"></li>
+                </ul>
+            </div>
         </div>
 
         <div class="inner">

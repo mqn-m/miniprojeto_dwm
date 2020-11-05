@@ -4,7 +4,11 @@
     <section id="Pratos" class="wrapper">
         <div class="inner" style="text-align: right;">
             <h1 class="titulo">Pratos </h1>
-            <a href="pratos/novo" class="button special small">Adicionar</a>
+            <div class="12u$">
+                <ul class="actions">
+                    <li><input type="button" class="small special" value="Adicionar" onclick="location.href='/pratos/novo'"></li>
+                </ul>
+            </div>
         </div>
         <div class="inner">
             @if (count($pratos) === 0)
