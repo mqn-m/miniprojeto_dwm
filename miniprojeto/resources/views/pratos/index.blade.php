@@ -13,7 +13,7 @@
                     <h3>{{ $prato->nome }}</h3>
                     <p>{{ $prato->nota }}</p>
                     <h4>{{ $prato->cal }} cals</h4>
-                    <form class="form_apagar"method="POST" action="/pratos/{{ $prato->id }}">
+                    <form class="form_apagar"method="POST" action="/pratos/{{ $prato->id }}" onsubmit="return confirm('Certeza que quer eliminar este prato?')">
                         @csrf
                         @method('delete')
                         <a href="pratos/{{ $prato->id }}/editar/" class=" icon fa-edit botao editar" title="Editar"></a>
