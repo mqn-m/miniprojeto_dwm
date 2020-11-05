@@ -10,13 +10,16 @@
                     @csrf
                     <div class="row uniform">
                         <div class="6u 12u$(xsmall)">
-                            <input type="text" name="nome" id="nome" value="" placeholder="Name" required/>
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="nome" id="nome" value="" placeholder="Nome" required/>
                         </div>
                         <div class="6u$ 12u$(xsmall)">
+                            <label for="cal">Calorias:</label>
                             <input type="number" name="cal" id="cal" value="" placeholder="Calorias" min="0" required/>
                         </div>
                         <!-- Break -->
                         <div class="12u$">
+                            <label for="nota">Descrição:</label>
                             <textarea name="nota" id="nota" placeholder="Descrição" rows="6" required></textarea>
                         </div>
                         <!-- Break -->

@@ -26,6 +26,7 @@
                             </div>
                             {{-- this shits ugly depois change
                             --}}
+                            {{--😂😂😂--}}
                             <div class="12u$">
                                 <label for="pratos">Pratos:</label>
                                 <select id="pratos" name="pratos[]" multiple size="3">
