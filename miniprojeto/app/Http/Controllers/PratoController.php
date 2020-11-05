@@ -36,6 +36,11 @@ class PratoController extends Controller
      */
     public function store()
     {
+        request()->validate([
+            'nome' => 'required',
+            'cal' => ['required', 'min:0']
+        ]);
+
         $prato = new Prato(request(['nome','cal','nota']));
         $prato->user_id = auth()->id();
         $prato->save();

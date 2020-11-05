@@ -2869,3 +2869,10 @@ select[multiple]{
 	text-decoration: none;
 	color: #f6755e;
 }
+
+.erro{
+	color: red;
+}
+.input_erro input{
+	border: 2px solid red;
+}

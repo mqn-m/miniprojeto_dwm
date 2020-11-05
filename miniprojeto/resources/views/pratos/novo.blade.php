@@ -9,20 +9,29 @@
                 <form method="POST" action="/pratos">
                     @csrf
                     <div class="row uniform">
-                        <div class="6u 12u$(xsmall)">
+
+
+                        <div class="6u 12u$(xsmall) @error('nome') input_erro @enderror">
                             <label for="nome">Nome:</label>
-                            <input type="text" name="nome" id="nome" value="" placeholder="Nome" required/>
+                        <input class="" type="text" name="nome" id="nome" value="{{old('nome')}}" placeholder="Nome"/>
+                            @error('nome')
+                                <p class="erro">{{$errors->first('nome')}}</p>
+                            @enderror
                         </div>
-                        <div class="6u$ 12u$(xsmall)">
+
+                        <div class="6u$ 12u$(xsmall) @error('cal') input_erro @enderror">
                             <label for="cal">Calorias:</label>
-                            <input type="number" name="cal" id="cal" value="" placeholder="Calorias" min="0" required/>
+                            <input type="number" name="cal" id="cal" value="{{old('nome')}}" placeholder="Calorias" min="0"/>
+                            @error('cal')
+                                <p class="erro">{{$errors->first('cal')}}</p>
+                            @enderror
                         </div>
-                        <!-- Break -->
+
                         <div class="12u$">
                             <label for="nota">Descrição:</label>
-                            <textarea name="nota" id="nota" placeholder="Descrição" rows="6" required></textarea>
+                            <textarea name="nota" id="nota" placeholder="Descrição" value="{{old('nome')}}" rows="6"></textarea>
                         </div>
-                        <!-- Break -->
+                        
                         <div class="12u$">
                             <ul class="actions">
                                 <li><input type="submit" value="Guardar" /></li>
