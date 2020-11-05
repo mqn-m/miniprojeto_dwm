@@ -2719,15 +2719,21 @@ input[type=number], input[type=date] {
 	width: 100%;
 }
 
+.gridMasterLOL{
+	max-width: 100%;
+	margin: 0 auto 30px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 10px;
+}
 .cartao {
 	position: relative;
-	display: inline-block;
+	display: block;
 	border-radius: 4px;
 	border: solid 1px #dee1e3;
 	margin-top: 0.2em;
 	overflow: hidden;
 	padding: 1em;
-	width: 33%;
 	height: 300px;
 }
 .cartao:hover{

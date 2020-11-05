@@ -58,7 +58,7 @@
                             <div class="12u$">
                                 <ul class="actions">
                                     <li><input type="submit" value="Guardar" /></li>
-                                <li><input type="button" value="Cancelar" class="alt" onclick="location.href='/refeicoes/{{$refeicao->id}}'"/></li>
+                                    <li><input type="button" value="Cancelar" class="alt" onclick="location.href='/refeicoes/{{$refeicao->id}}'"/></li>
                                 </ul>
                             </div>
                         </div>
