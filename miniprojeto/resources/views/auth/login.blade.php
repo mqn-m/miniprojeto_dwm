@@ -12,9 +12,10 @@
 
                         <div class="6u 12u$(xsmall) @error('email') input_erro @enderror">
                             <label for="email">{{ __('E-Mail Address') }}</label>
-                            <input id="email" type="email" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email"
+                                autofocus>
                             @error('email')
-                                <p class="erro" role="alert">   {{ $message }}</p>
+                                <p class="erro" role="alert"> {{ $message }}</p>
                             @enderror
                         </div>
 
@@ -27,10 +28,10 @@
                         </div>
 
                         <div class="12u$" style="text-align: center">
-                            <button type="submit">
-                                {{ __('Login') }}
-                            </button>
-
+                            <ul class="actions">
+                                <li><input type="submit" value="{{ __('Login') }}"></li>
+                                <li><input type="button" value="Registar" class="alt" onclick="location.href='/register'" /></li>
+                            </ul>
                             @if (Route::has('password.request'))
                                 <a href="{{ route('password.request') }}">
                                     <br>

@@ -43,10 +43,10 @@
                     </div>
                     <br>
 
-                    <div class="actions">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Guardar Alterações') }}
-                        </button>
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li><input type="submit" value="{{ __('Guardar Alterações') }}"></li>
+                        </ul>
                     </div>
 
                 </form>

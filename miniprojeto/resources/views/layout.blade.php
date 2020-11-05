@@ -61,7 +61,7 @@
                     <li>
                         <form action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
-                            <button type="submit" class="button fit">LOG OUT</button>
+                            <button type="submit" class="button fit special">LOG OUT</button>
                         </form>
                     </li> <!-- log out -->
                 </ul>

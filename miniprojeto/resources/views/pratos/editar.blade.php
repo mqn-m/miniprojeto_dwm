@@ -35,7 +35,7 @@
                         <div class="12u$">
                             <ul class="actions">
                                 <li><input type="submit" value="Guardar"/></li>
-                                <li><a href="/pratos"><input type="button" value="Cancelar" class="alt"></a></li>
+                                <li><input type="button" value="Cancelar" class="alt"  onclick="location.href='/pratos'"></li>
                             </ul>
                         </div>
                     </div>
