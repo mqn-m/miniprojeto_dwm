@@ -8,9 +8,40 @@
             <p>Comece a fazer tracking da sua alimentação<br/>para depois começar a melhorar os seus comportamentos
                 alimentares</p>
             <ul class="actions">
+                @if(Auth::check())
                 <li><a href="/pratos" class="button scrolly">Pratos</a></li>
                 <li><a href="/refeicoes" class="button scrolly">Refeições</a></li>
+                @else
+                <li><a href="/login" class="button scrolly">Comece Já!</a></li>
+                @endif
             </ul>
+        </div>
+    </section>
+    <section id="one" class="wrapper">
+        <div class="inner flex flex-3">
+            <div class="flex-item left">
+                <div>
+                    <h3>Pratos Personalizaveis</h3>
+                    <p>Pode registar pratos que com frquência<br />para depois adicionar a uma refeição rapidamente</p>
+                </div>
+                <div>
+                    <h3>Registo de Refeições</h3>
+                    <p>Registe todas as suas refeições diáriamente para melhorar a sua expêrincia de tracking</p>
+                </div>
+            </div>
+            <div class="flex-item image fit round">
+                <img src="images/Flogo.png" alt="" />
+            </div>
+            <div class="flex-item right">
+                <div>
+                    <h3>Visualizar Estatísticas</h3>
+                    <p>Após de registar algumas reifeições<br /> poderá visualizar estátisticas da sua alimentação</p>
+                </div>
+                <div>
+                    <h3>Receba Dicas</h3>
+                    <p>Receba dicas dos nossos professionais<br />contactando-lhes pelo nosso email</p>
+                </div>
+            </div>
         </div>
     </section>
 @endsection
