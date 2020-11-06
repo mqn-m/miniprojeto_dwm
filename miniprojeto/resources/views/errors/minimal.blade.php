@@ -18,18 +18,16 @@
 
     <!-- Header -->
     <header id="header">
-        <nav class="left">
-            <a href="#menu"><span>Menu</span></a>
-        </nav>
-        <a href="/" class="logo">Food Tracker</a>
+        <a href="/home" class="logo">Food Tracker</a>
+        @if (Auth::check())
         <nav class="right">
-            <a class="nome_perfil" href="/perfil"> Bem vindo(a), {{ Auth::user()->name }}</a>
+                Bem vindo(a), <a href="/perfil" class="nome_perfil fit alt">{{ Auth::user()->name }}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
                 <button type="submit" class="button small">LOG OUT</button>
             </form>
-
         </nav>
+    @endif
     </header>
     <div class="inner">
 

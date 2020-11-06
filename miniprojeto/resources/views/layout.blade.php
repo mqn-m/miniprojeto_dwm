@@ -36,7 +36,7 @@
                     <a href="#menu"><span>Menu</span></a>
                 </nav>
             @endif
-            <a href="/" class="logo">Food Tracker</a>
+            <a href="/home" class="logo">Food Tracker</a>
             @if (Auth::check())
                 <nav class="right">
                         Bem vindo(a), <a href="/perfil" class="nome_perfil fit alt">{{ Auth::user()->name }}</a>
@@ -52,7 +52,7 @@
         @if (Auth::check())
             <nav id="menu">
                 <ul class="links">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/home">Home</a></li>
                     <li><a href="/pratos">Pratos</a></li>
                     <li><a href="/refeicoes">Refeicões</a></li>
                     <li><a href="/perfil">Perfil</a></li>
