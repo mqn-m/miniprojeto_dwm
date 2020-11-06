@@ -12,8 +12,7 @@
                         <div class="12u$">
                             <label for="name" class="">{{ __('Nome') }}</label>
 
-                            <input id="name" type="text" name="name" value="{{ Auth::user()->name }}" required
-                                autocomplete="name" readonly>
+                            <div id="name" name="name">{{ Auth::user()->name }}</div>
 
                         </div>
                     </div>
@@ -22,8 +21,7 @@
                             <label for="email" class="">{{ __('E-Mail') }}</label>
 
 
-                            <input id="email" type="email" name="email" value="{{ Auth::user()->email }}" required
-                                autocomplete="email" readonly>
+                            <div id="email" name="email">{{ Auth::user()->email }}</div>
 
 
                         </div>
@@ -34,8 +32,7 @@
                             <label for="idade" class="">{{ __('Idade') }}</label>
 
 
-                            <input id="idade" type="number" name="idade" value="{{ Auth::user()->idade }}" required
-                                autocomplete="idade" readonly>
+                            <div id="idade" name="idade">{{ Auth::user()->idade }}</div>
 
 
                         </div>
@@ -46,8 +43,7 @@
                             <label for="peso" class="">{{ __('Peso') }}</label>
 
 
-                            <input id="peso" type="number" step="0.010" name="peso" value="{{ Auth::user()->peso }}"
-                                required autocomplete="peso" readonly>
+                            <div id="peso" step="0.010" name="peso">{{ Auth::user()->peso }}</div>
 
 
                         </div>

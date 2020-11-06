@@ -39,12 +39,17 @@
             <a href="/home" class="logo">Food Tracker</a>
             @if (Auth::check())
                 <nav class="right">
-                        Bem vindo(a), <a href="/perfil" class="nome_perfil fit alt">{{ Auth::user()->name }}</a>
+                    Bem vindo(a), <a href="/perfil" class="nome_perfil fit alt">{{ Auth::user()->name }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                         <button type="submit" class="button small">LOG OUT</button>
                     </form>
                 </nav>
+            @else
+                <nav class="right">
+                    <input type="button" value="LOG IN" class="special small" onclick="location.href='/login'" />
+                </nav>
+
             @endif
         </header>
 
