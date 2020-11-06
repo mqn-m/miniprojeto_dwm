@@ -27,9 +27,12 @@
                             @enderror
                         </div>
                         
-                        <div class="12u$">
+                        <div class="12u$ @error('nota') input_erro @enderror">
                             <label for="nota">Descrição:</label>
-                            <textarea name="nota" id="nota"  rows="6" required max="200">{{ $pratos->nota }}</textarea>
+                            <textarea name="nota" id="nota"  rows="6" required maxlength="200">{{ $pratos->nota }}</textarea>
+                            @error('nota')
+                                <p class="erro">{{$errors->first('nota')}}</p>
+                            @enderror
                         </div>
                         
                         <div class="12u$">
