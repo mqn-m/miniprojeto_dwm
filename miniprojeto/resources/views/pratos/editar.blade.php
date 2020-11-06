@@ -29,7 +29,7 @@
                         
                         <div class="12u$">
                             <label for="nota">Descrição:</label>
-                            <textarea name="nota" id="nota"  rows="6" required>{{ $pratos->nota }}</textarea>
+                            <textarea name="nota" id="nota"  rows="6" required max="200">{{ $pratos->nota }}</textarea>
                         </div>
                         
                         <div class="12u$">

@@ -39,7 +39,7 @@ class PratoController extends Controller
         request()->validate([
             'nome' => 'required',
             'cal' => ['required', 'min:0'],
-            'nota' => 'required'
+            'nota' => ['required','max:200']
         ]);
 
         $prato = new Prato(request(['nome','cal','nota']));
@@ -84,7 +84,7 @@ class PratoController extends Controller
         request()->validate([
             'nome' => 'required',
             'cal' => ['required', 'min:0'],
-            'nota' => 'required'
+            'nota' => ['required','max:200']
         ]);
 
         $pratos->nome = request('nome');
