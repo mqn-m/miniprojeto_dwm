@@ -42,10 +42,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/refeicoes/{refeicao}', 'App\Http\Controllers\RefeicaoController@destroy');
     Route::get('/refeicoes/{refeicao}/editar', 'App\Http\Controllers\RefeicaoController@edit');
 
+    //perfil
+
     Route::get('/perfil', 'App\Http\Controllers\UserController@show');
     Route::get('/perfil/{user}/edit', 'App\Http\Controllers\UserController@edit');
     Route::put('/perfil/{user}', 'App\Http\Controllers\UserController@update');
     Route::delete('/perfil/{user}', 'App\Http\Controllers\UserController@destroy');
+
+
+    //estatisticas
+    Route::get('/estatisticas', 'App\Http\Controllers\EstatisticaController@index');
 
 
     Route::fallback(function(){
