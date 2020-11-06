@@ -13,7 +13,7 @@
                     <div class="row uniform">
                         <div class="6u 12u$(xsmall) @error('nome') input_erro @enderror">
                             <label for="nome">Nome:</label>
-                            <input type="text" name="nome" id="nome" value="{{ $pratos->nome }}" required autofocus />
+                            <input type="text" name="nome" id="nome" value="{{ $pratos->nome }}" required autofocus maxlength="30" />
                             @error('nome')
                                 <p class="erro">{{$errors->first('nome')}}</p>
                             @enderror
@@ -21,7 +21,7 @@
                         
                         <div class="6u$ 12u$(xsmall) @error('cal') input_erro @enderror">
                             <label for="cal">Calorias:</label>
-                            <input type="number" name="cal" id="cal" value="{{ $pratos->cal }}" min="0" required/>
+                            <input type="number" name="cal" id="cal" value="{{ $pratos->cal }}" min="0" max="100000" required/>
                             @error('cal')
                                 <p class="erro">{{$errors->first('cal')}}</p>
                             @enderror
@@ -29,7 +29,7 @@
                         
                         <div class="12u$ @error('nota') input_erro @enderror">
                             <label for="nota">Descrição:</label>
-                            <textarea name="nota" id="nota"  rows="6" required maxlength="200">{{ $pratos->nota }}</textarea>
+                            <textarea name="nota" id="nota"  rows="6" required maxlength="100">{{ $pratos->nota }}</textarea>
                             @error('nota')
                                 <p class="erro">{{$errors->first('nota')}}</p>
                             @enderror

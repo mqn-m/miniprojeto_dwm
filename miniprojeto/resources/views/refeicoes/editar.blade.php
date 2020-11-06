@@ -25,11 +25,6 @@
                                     <option value="Ceia">Ceia</option>
                                 </select>
                             </div>
-                            <div class="6u 12u$(xsmall)">
-                                <label for="data_refeicao">Data da Refeição:</label>
-                                <input type="date" name="data_refeicao" id="data_refeicao"
-                                    value="{{ $refeicao->data_refeicao }}" placeholder="Data Refeição" required />
-                            </div>
                             <div class="12u$">
                                 <label for="pratos">Pratos:</label>
                                 <select id="pratos" name="pratos[]" multiple size="3">
@@ -44,21 +39,33 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="6u$ 12u$(xsmall)">
+                            <div class="6u 12u$(xsmall) @error('data_refeicao') input_erro @enderror">
+                                <label for="data_refeicao">Data da Refeição:</label>
+                                <input type="date" name="data_refeicao" id="data_refeicao"
+                                    value="{{ $refeicao->data_refeicao }}" placeholder="Data Refeição" required />
+                                @error('data_refeicao')
+                                    <p class="erro">{{ $errors->first('data_refeicao') }}</p>
+                                @enderror
+                            </div>
+                            <div class="6u$ 12u$(xsmall) @error('total_cal') input_erro @enderror">
                                 <label for="total_cal">Total Calorias:</label>
                                 <input type="number" name="total_cal" id="total_cal" value={{ $refeicao->total_cal }}
-                                    placeholder="Calorias" min="0" required />
+                                    placeholder="Calorias" min="0" max="1000000" required />
+                                @error('total_cal')
+                                    <p class="erro">{{ $errors->first('total_cal') }}</p>
+                                @enderror
                             </div>
                             <!-- Break -->
                             <div class="12u$">
                                 <label for="notas">Descrição:</label>
-                                <textarea name="notas" id="notas" rows="6">{{ $refeicao->notas }}</textarea>
+                                <textarea name="notas" id="notas" rows="6" maxlength="100">{{ $refeicao->notas }} </textarea>
                             </div>
                             <!-- Break -->
                             <div class="12u$">
                                 <ul class="actions">
                                     <li><input type="submit" value="Guardar" /></li>
-                                    <li><input type="button" value="Cancelar" class="alt" onclick="location.href='/refeicoes/{{$refeicao->id}}'"/></li>
+                                    <li><input type="button" value="Cancelar" class="alt"
+                                            onclick="location.href='/refeicoes/{{ $refeicao->id }}'" /></li>
                                 </ul>
                             </div>
                         </div>
@@ -76,5 +83,6 @@
     <script src="/js/script_refeicoes.js"></script>
     <script>
         let mySelect = new vanillaSelectBox("#pratos");
+
     </script>
 @endsection

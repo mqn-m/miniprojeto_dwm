@@ -23,7 +23,7 @@
                                 <div class="content">
                                     <h3>{{ $refeicao->altura_dia }}</h3>
                                     <h3>{{ $refeicao->data_refeicao }}</h3>
-                                    <p>{{ $refeicao->notas }}</p>
+                                    <p style="word-break: break-all">{{ $refeicao->notas }}</p>
                                     <h4>{{ $refeicao->total_cal }} cals</h4>
                                     <form class="form_apagar" method="POST" action="/refeicoes/{{ $refeicao->id }}">
                                         @csrf

@@ -112,9 +112,10 @@ class RefeicaoController extends Controller
     {
         request()->validate([
             'altura_dia' => ['required'],
-            'data_refeicao' => ['required', 'date'],
-            'total_cal' => ['required', 'numeric', 'min:0'],
-            'pratos' => ['exists:pratos,id']
+            'data_refeicao' => ['required', 'before:tomorrow'],
+            'total_cal' => ['required', 'numeric', 'min:0', 'max:1000000'],
+            'pratos' => ['exists:pratos,id'],
+            'notas' => ['max:100']
         ]);
     }
 }

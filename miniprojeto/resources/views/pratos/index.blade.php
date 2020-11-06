@@ -18,8 +18,8 @@
                     @foreach ($pratos as $prato)
                         <div class="cartao">
                             <div class="content">
-                                <h3>{{ $prato->nome }}</h3>
-                                <p>{{ $prato->nota }}</p>
+                                <h3 style="word-break: break-all">{{ $prato->nome }}</h3>
+                                <p style="word-break: break-all">{{ $prato->nota }}</p>
                                 <h4>{{ $prato->cal }} cals</h4>
                                 <form class="form_apagar" method="POST" action="/pratos/{{ $prato->id }}"
                                     onsubmit="return confirm('Certeza que quer eliminar este prato?')">

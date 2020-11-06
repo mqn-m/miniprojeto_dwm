@@ -12,7 +12,7 @@
                             <div class="6u 12u$(xsmall) @error('nome') input_erro @enderror">
                                 <label for="nome">Nome:</label>
                                 <input class="" type="text" name="nome" id="nome" value="{{ old('nome') }}"
-                                    placeholder="Nome" required autofocus />
+                                    placeholder="Nome" required autofocus  maxlength="30"/>
                                 @error('nome')
                                     <p class="erro">{{ $errors->first('nome') }}</p>
                                 @enderror
@@ -21,7 +21,7 @@
                             <div class="6u$ 12u$(xsmall) @error('cal') input_erro @enderror">
                                 <label for="cal">Calorias:</label>
                                 <input type="number" name="cal" id="cal" value="{{ old('nome') }}" placeholder="Calorias"
-                                    min="0" required />
+                                    min="0"  max="100000" required />
                                 @error('cal')
                                     <p class="erro">{{ $errors->first('cal') }}</p>
                                 @enderror
@@ -29,8 +29,8 @@
 
                             <div class="12u$ @error('nota') input_erro @enderror">
                                 <label for="nota">Descrição:</label>
-                                <textarea name="nota" id="nota" placeholder="Descrição" value="{{ old('nome') }}" rows="6"
-                                    required maxlength="200"></textarea>
+                                <textarea name="nota" id="nota" placeholder="Descrição" value="{{ old('nota') }}" rows="6"
+                                    required maxlength="100"></textarea>
                                 @error('nota')
                                     <p class="erro">{{ $errors->first('nota') }}</p>
                                 @enderror

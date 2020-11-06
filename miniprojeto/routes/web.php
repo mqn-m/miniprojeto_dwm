@@ -22,8 +22,6 @@ Route::middleware('auth')->group(function () {
         return view('welcome');
     });
 
-
-
     //pratos
 
     Route::get('/pratos', 'App\Http\Controllers\PratoController@index');

@@ -15,7 +15,7 @@
                         <div class="row uniform">
                             <div class="12u$">
                                 <label for="altura_dia">Altura do Dia:</label>
-                                <select id="altura_dia" name="altura_dia" required>
+                                <select id="altura_dia" name="altura_dia"  value="{{ old('altura_dia') }}" required>
                                     <option value="Pequeno-Almoço">Pequeno-Almoço</option>
                                     <option value="Almoço">Almoço</option>
                                     <option value="Jantar">Jantar</option>
@@ -24,9 +24,6 @@
                                     <option value="Ceia">Ceia</option>
                                 </select>
                             </div>
-                            {{-- this shits ugly depois change
-                            --}}
-                            {{--😂😂😂--}}
                             <div class="12u$">
                                 <label for="pratos">Pratos:</label>
                                 <select id="pratos" name="pratos[]" multiple size="3">
@@ -37,27 +34,34 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="6u 12u$(xsmall)">
+                            <div class="6u 12u$(xsmall)  @error('data_refeicao') input_erro @enderror">
                                 <label for="data_refeicao">Data da Refeição:</label>
-                                <input type="date" name="data_refeicao" id="data_refeicao" value=""
-                                    placeholder="Data Refeição" required />
+                                <input type="date" name="data_refeicao" id="data_refeicao"
+                                    value="{{ old('data_refeicao') }}" placeholder="Data Refeição" required />
+                                @error('data_refeicao')
+                                    <p class="erro">{{ $errors->first('data_refeicao') }}</p>
+                                @enderror
                             </div>
-                            <div class="6u$ 12u$(xsmall)">
+                            <div class="6u$ 12u$(xsmall) @error('total_cal') input_erro @enderror">
                                 <label for="total_cal">Total Calorias:</label>
-                                <input type="number" min="0" name="total_cal" id="total_cal" value="" placeholder="Calorias"
-                                    min="0" required />
+                                <input type="number" min="0" max="1000000" name="total_cal" id="total_cal" value="{{ old('total_cal') }}"
+                                    placeholder="Calorias" min="0" required/>
+                                @error('total_cal')
+                                    <p class="erro">{{ $errors->first('total_cal') }}</p>
+                                @enderror
                             </div>
                             <!-- Break -->
                             <div class="12u$">
                                 <label for="notas">Descrição:</label>
                                 <textarea name="notas" id="notas" placeholder="Escreva uma descrição da refeição..."
-                                    rows="6"></textarea>
+                                    value="{{ old('notas') }}" rows="6" maxlength="100"></textarea>
                             </div>
                             <!-- Break -->
                             <div class="12u$">
                                 <ul class="actions">
                                     <li><input type="submit" value="Guardar" /></li>
-                                    <li><input type="button" value="Cancelar" class="alt" onclick="location.href='/refeicoes'"/></li>
+                                    <li><input type="button" value="Cancelar" class="alt"
+                                            onclick="location.href='/refeicoes'" /></li>
                                 </ul>
                             </div>
                         </div>

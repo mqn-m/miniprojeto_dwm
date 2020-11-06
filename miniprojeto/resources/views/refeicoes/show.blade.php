@@ -41,7 +41,7 @@
                             @if ($refeicao->notas == null)
                                 <strong>Sem descrição!</strong>
                             @else
-                                <div>{{ $refeicao->notas }}</div>
+                                <div class="12u$" style="word-break: break-all">{{ $refeicao->notas }}</div>
                             @endif
                         </div>
                         <!-- Break -->
