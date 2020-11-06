@@ -2726,6 +2726,10 @@ input[type=number], input[type=date] {
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 10px;
 }
+.gridMasterLOL2{
+	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
 .cartao {
 	position: relative;
 	display: block;
@@ -2736,6 +2740,11 @@ input[type=number], input[type=date] {
 	padding: 1em;
 	height: 300px;
 }
+
+.cartao2{
+	height: 100px;
+}
+
 .cartao:hover{
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	color: white;
