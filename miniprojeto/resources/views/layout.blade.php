@@ -60,6 +60,7 @@
                     <li><a href="/home">Home</a></li>
                     <li><a href="/pratos">Pratos</a></li>
                     <li><a href="/refeicoes">Refeicões</a></li>
+                    <li><a href="/estatisticas">Estatísticas</a></li>
                     <li><a href="/perfil">Perfil</a></li>
                 </ul>
                 <ul class="actions vertical">
