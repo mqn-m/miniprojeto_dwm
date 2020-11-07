@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->has(\App\Models\Refeicao::factory()->hasAttached(\App\Models\Prato::factory()->count(2))->count(10))->count(2)->create();    
+        \App\Models\User::factory()->has(\App\Models\Refeicao::factory()->hasAttached(\App\Models\Prato::factory()->count(2))->count(10))->count(2)->create();
+        \App\Models\User::factory()->create()->if();   
     }
 
     //comando nãp está totalmente correto mas serve para preecher muitos dados na base de dados

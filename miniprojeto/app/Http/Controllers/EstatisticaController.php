@@ -16,7 +16,28 @@ class EstatisticaController extends Controller
      */
     public function index()
     {
-        $estatisticas = DB::table('refeicaos')->select('data_refeicao', DB::raw('SUM(total_cal) as calorias'))->where('user_id', auth()->id())->groupBy('data_refeicao')->get();
-        return view('estatisticas.index', ['estatisticas' => $estatisticas]);
+        $estatisticas = Refeicao::select('data_refeicao', DB::raw('SUM(total_cal) as calorias'))->where('user_id', auth()->id())->groupBy('data_refeicao')->orderBy('data_refeicao', 'desc')->paginate(12);
+        $mediaRefeicao = Refeicao::where('user_id', auth()->id())->avg('total_cal');
+        $numRefeicao = Refeicao::where('user_id', auth()->id())->count('id');
+        $numcals = 0;
+        $numeroDias = 0;
+        foreach($estatisticas as $dia){
+            $numeroDias += 1;
+            $numcals += $dia['calorias'];
+        }
+
+        if($numeroDias == 0){
+            $mediaDia = 0;
+            $mediaRefeicao = 0;
+            $numcals = 0;
+        }else{
+            $mediaDia = $numcals / $numeroDias;
+        }
+        $mediaRefeicao = round($mediaRefeicao);
+        $mediaDia = round($mediaDia);
+
+        
+
+        return view('estatisticas.index', compact('estatisticas',  'mediaRefeicao', 'mediaDia', 'numRefeicao', 'numeroDias'));
     }
 }
