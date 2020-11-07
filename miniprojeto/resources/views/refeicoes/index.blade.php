@@ -25,7 +25,8 @@
                                     <h3>{{ $refeicao->data_refeicao }}</h3>
                                     <p style="word-break: break-all">{{ $refeicao->notas }}</p>
                                     <h4>{{ $refeicao->total_cal }} cals</h4>
-                                    <form class="form_apagar" method="POST" action="/refeicoes/{{ $refeicao->id }}">
+                                    <form class="form_apagar" method="POST" action="/refeicoes/{{ $refeicao->id }}"
+                                        onsubmit="return confirm('Certeza que quer eliminar esta refeição?')">
                                         @csrf
                                         @method('delete')
                                         <a href="refeicoes/{{ $refeicao->id }}/editar/" class=" icon fa-edit botao editar"

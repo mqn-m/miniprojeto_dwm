@@ -52,7 +52,8 @@
 
                     <div class="12u$">
                         <ul class="actions">
-                            <form method="POST" action="/perfil/{{ Auth::user()->id }}">
+                            <form method="POST" action="/perfil/{{ Auth::user()->id }}"
+                                onsubmit="return confirm('Certeza que quer eliminar a sua conta?')">
                                 @csrf
                                 @method('DELETE')
                                 <li><input type="button" value="{{ __('Editar') }}"

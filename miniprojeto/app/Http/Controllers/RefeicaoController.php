@@ -26,7 +26,7 @@ class RefeicaoController extends Controller
      */
     public function create()
     {
-        return view('refeicoes.novo', ['pratos' => Prato::all()]); //só os do user que entrou ::where('user_id',auth()->id())->get();
+        return view('refeicoes.novo', ['pratos' =>  Prato::where('user_id', auth()->id())->get()]); 
     }
 
     /**
@@ -68,7 +68,7 @@ class RefeicaoController extends Controller
      */
     public function edit(Refeicao $refeicao)
     {
-        return view('refeicoes.editar', ['refeicao' => $refeicao, 'pratos' => Prato::all()]);
+        return view('refeicoes.editar', ['refeicao' => $refeicao, 'pratos' =>  Prato::where('user_id', auth()->id())->get()]);
     }
 
     /**

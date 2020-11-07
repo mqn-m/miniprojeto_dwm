@@ -47,7 +47,8 @@
                         <!-- Break -->
                         <div class="12u$">
                             <ul class="actions">
-                                <form method="POST" action="/refeicoes/{{ $refeicao->id }}">
+                                <form method="POST" action="/refeicoes/{{ $refeicao->id }}"
+                                    onsubmit="return confirm('Certeza que quer eliminar esta refeição?')">
                                     @csrf
                                     @method('delete')
                                     <li>

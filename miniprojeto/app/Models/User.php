@@ -45,7 +45,7 @@ class User extends Authenticatable
     ];
 
 
-    public function refeicoes(){
+    public function refeicaos(){
         return $this->hasMany(Refeicao::class);
     }
 

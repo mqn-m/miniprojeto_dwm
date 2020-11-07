@@ -22,11 +22,13 @@ class PratoFactory extends Factory
      */
     public function definition()
     {
+        $user_ids = \DB::table('users')->select('id')->get();
+        $user_id = $this->faker->randomElement($user_ids)->id;
         return [
             'nome' => $this->faker->word,
             'cal' => $this->faker->numberBetween($min = 100, $max = 5000),
             'nota' => $this->faker->sentence,
-            'user' =>$this->faker->randomDigit
-             ];
+            'user_id' => $user_id,
+        ];
     }
 }
