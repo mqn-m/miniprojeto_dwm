@@ -2909,3 +2909,11 @@ select[multiple]{
 	padding: 0px 5px;
 	border-radius: 10px;
 }
+
+.info a{
+	text-decoration: none;
+}
+
+.info h3:hover{
+	color: #f6755e;
+}

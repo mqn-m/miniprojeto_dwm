@@ -17,15 +17,15 @@
             </ul>
         </div>
     </section>
-    <section id="one" class="wrapper">
+    <section id="one" class="wrapper info">
         <div class="inner flex flex-3">
             <div class="flex-item left">
                 <div>
-                    <h3>Pratos Personalizaveis</h3>
+                    <a href="/pratos"><h3>Pratos Personalizaveis</h3></a>
                     <p>Pode registar pratos que com frquência<br />para depois adicionar a uma refeição rapidamente</p>
                 </div>
                 <div>
-                    <h3>Registo de Refeições</h3>
+                    <a href="/refeicoes"><h3>Registo de Refeições</h3></a>
                     <p>Registe todas as suas refeições diáriamente para melhorar a sua expêrincia de tracking</p>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             </div>
             <div class="flex-item right">
                 <div>
-                    <h3>Visualizar Estatísticas</h3>
+                    <a href="estatisticas"><h3>Visualizar Estatísticas</h3></a>
                     <p>Após de registar algumas reifeições<br /> poderá visualizar estátisticas da sua alimentação</p>
                 </div>
                 <div>
