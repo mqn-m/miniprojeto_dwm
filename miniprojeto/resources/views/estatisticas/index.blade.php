@@ -3,7 +3,7 @@
 @section('content')
     <section id="Pratos" class="wrapper">
         <div class="inner" style="text-align: center">
-            <h1 class="titulo">Estatisticas</h1>
+            <h1 class="titulo">Estatísticas</h1>
             <div class="estatisticas">
                 <p><span>Média por dia:</span> {{ $mediaDia }} cals</p>
                 <p><span>Média por refeição:</span> {{ $mediaRefeicao }} cals</p>
