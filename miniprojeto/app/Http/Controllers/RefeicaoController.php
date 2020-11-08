@@ -26,7 +26,17 @@ class RefeicaoController extends Controller
      */
     public function create()
     {
-        return view('refeicoes.novo', ['pratos' =>  Prato::where('user_id', auth()->id())->get()]); 
+        $altura_dia_options = [
+            "Pequeno-Almoço",
+            "Lanche manhã",
+            "Almoço",
+            "Lanche tarde",
+            "Jantar",
+            "Ceia"
+        ];
+
+        $pratos = Prato::where('user_id', auth()->id())->get();
+        return view('refeicoes.novo', compact('altura_dia_options','pratos'));
     }
 
     /**
@@ -68,7 +78,18 @@ class RefeicaoController extends Controller
      */
     public function edit(Refeicao $refeicao)
     {
-        return view('refeicoes.editar', ['refeicao' => $refeicao, 'pratos' =>  Prato::where('user_id', auth()->id())->get()]);
+        $altura_dia_options = [
+            "Pequeno-Almoço",
+            "Lanche manhã",
+            "Almoço",
+            "Lanche tarde",
+            "Jantar",
+            "Ceia"
+        ];
+
+        $pratos = Prato::where('user_id', auth()->id())->get();
+
+        return view('refeicoes.editar', compact('altura_dia_options','pratos', 'refeicao'));
     }
 
     /**

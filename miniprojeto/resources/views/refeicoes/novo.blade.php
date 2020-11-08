@@ -15,20 +15,20 @@
                         <div class="row uniform">
                             <div class="12u$">
                                 <label for="altura_dia">Altura do Dia:</label>
-                                <select id="altura_dia" name="altura_dia"  value="{{ old('altura_dia') }}" required>
-                                    <option value="Pequeno-Almoço">Pequeno-Almoço</option>
-                                    <option value="Lanche manhã">Lanche manhã</option>
-                                    <option value="Almoço">Almoço</option>
-                                    <option value="Lanche tarde">Lanche tarde</option>
-                                    <option value="Jantar">Jantar</option>
-                                    <option value="Ceia">Ceia</option>
+                                <select id="altura_dia" name="altura_dia" required>
+                                    @foreach ($altura_dia_options as $key => $hora)
+                                        <option value="{{ $hora }}" {{ old('altura_dia') == $hora ? 'selected' : '' }}>
+                                            {{ $hora }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="12u$">
                                 <label for="pratos">Pratos:</label>
                                 <select id="pratos" name="pratos[]" multiple size="3">
                                     @foreach ($pratos as $prato)
-                                        <option data-cals={{ $prato->cal }} value="{{ $prato->id }}"> Prato:
+                                        <option data-cals={{ $prato->cal }} value="{{ $prato->id }}"
+                                            {{ (collect(old('pratos'))->contains($prato->id)) ? 'selected':'' }}
+                                            > Prato:
                                             {{ $prato->nome }} - {{ $prato->cal }} cals
                                         </option>
                                     @endforeach
@@ -44,8 +44,8 @@
                             </div>
                             <div class="6u$ 12u$(xsmall) @error('total_cal') input_erro @enderror">
                                 <label for="total_cal">Total Calorias:</label>
-                                <input type="number" min="0" max="1000000" name="total_cal" id="total_cal" value="{{ old('total_cal') }}"
-                                    placeholder="Calorias" min="0" required/>
+                                <input type="number" min="0" max="1000000" name="total_cal" id="total_cal"
+                                    value="{{ old('total_cal') }}" placeholder="Calorias" min="0" required />
                                 @error('total_cal')
                                     <p class="erro">{{ $errors->first('total_cal') }}</p>
                                 @enderror

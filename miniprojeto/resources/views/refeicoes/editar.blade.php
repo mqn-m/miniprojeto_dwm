@@ -16,13 +16,12 @@
                         <div class="row uniform">
                             <div class="12u$">
                                 <label for="altura_dia">Altura do Dia:</label>
-                                <select id="altura_dia" name="altura_dia" required value="{{ $refeicao->altura_dia }}">
-                                    <option value="Pequeno-Almoço">Pequeno-Almoço</option>
-                                    <option value="Lanche manhã">Lanche manhã</option>
-                                    <option value="Almoço">Almoço</option>
-                                    <option value="Lanche tarde">Lanche tarde</option>
-                                    <option value="Jantar">Jantar</option>
-                                    <option value="Ceia">Ceia</option>
+                                <select id="altura_dia" name="altura_dia" required>
+                                    @foreach ($altura_dia_options as $key => $hora)
+                                        <option value="{{ $hora }}" {{ $refeicao->altura_dia == $hora ? 'selected' : '' }}>
+                                            {{ $hora }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="12u$">
@@ -58,7 +57,8 @@
                             <!-- Break -->
                             <div class="12u$">
                                 <label for="notas">Descrição:</label>
-                                <textarea name="notas" id="notas" rows="6" maxlength="100">{{ $refeicao->notas }} </textarea>
+                                <textarea name="notas" id="notas" rows="6" maxlength="100">{{ $refeicao->notas }}
+                                </textarea>
                             </div>
                             <!-- Break -->
                             <div class="12u$">
