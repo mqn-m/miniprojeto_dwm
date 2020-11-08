@@ -14,7 +14,7 @@
         </div>
         <div class="inner">
             @if (count($estatisticas) === 0)
-                <h3 style="color: #727a82;" class="sem-pratos-refeicoes">Não tem refeicoes criados ainda</h3>
+                <h3 style="color: #727a82;" class="sem-pratos-refeicoes">Não tem refeições criadas ainda</h3>
             @else
                 <div class="gridMasterLOL gridMasterLOL2">
                     @foreach ($estatisticas as $estatistica)

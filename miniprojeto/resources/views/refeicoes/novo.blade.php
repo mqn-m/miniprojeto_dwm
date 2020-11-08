@@ -17,10 +17,10 @@
                                 <label for="altura_dia">Altura do Dia:</label>
                                 <select id="altura_dia" name="altura_dia"  value="{{ old('altura_dia') }}" required>
                                     <option value="Pequeno-Almoço">Pequeno-Almoço</option>
-                                    <option value="Almoço">Almoço</option>
-                                    <option value="Jantar">Jantar</option>
                                     <option value="Lanche manhã">Lanche manhã</option>
+                                    <option value="Almoço">Almoço</option>
                                     <option value="Lanche tarde">Lanche tarde</option>
+                                    <option value="Jantar">Jantar</option>
                                     <option value="Ceia">Ceia</option>
                                 </select>
                             </div>

@@ -22,11 +22,11 @@
             <div class="flex-item left">
                 <div>
                     <a href="/pratos"><h3>Pratos Personalizaveis</h3></a>
-                    <p>Pode registar pratos que com frquência<br />para depois adicionar a uma refeição rapidamente</p>
+                    <p>Registe pratos que come com frequência<br />para depois rapidamente adicioná-los a uma refeição </p>
                 </div>
                 <div>
                     <a href="/refeicoes"><h3>Registo de Refeições</h3></a>
-                    <p>Registe todas as suas refeições diáriamente para melhorar a sua expêrincia de tracking</p>
+                    <p>Registe todas as suas refeições diáriamente para melhorar a sua expêriencia de tracking</p>
                 </div>
             </div>
             <div class="flex-item image fit round">
@@ -35,11 +35,11 @@
             <div class="flex-item right">
                 <div>
                     <a href="estatisticas"><h3>Visualizar Estatísticas</h3></a>
-                    <p>Após de registar algumas reifeições<br /> poderá visualizar estátisticas da sua alimentação</p>
+                    <p>Após registar algumas refeições<br /> poderá visualizar estatísticas da sua alimentação</p>
                 </div>
                 <div>
                     <h3>Receba Dicas</h3>
-                    <p>Receba dicas dos nossos professionais<br />contactando-lhes pelo nosso email</p>
+                    <p>Receba dicas dos nossos professionais<br />entre em contacto pelo nosso email</p>
                 </div>
             </div>
         </div>
